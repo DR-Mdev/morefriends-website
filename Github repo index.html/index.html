@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>トップページ — More Friends</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe-base.css">
+  <style>
+    /* ── Hero (トップページ専用) ── */
+    .hero {
+      padding-top: 64px;
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+    }
+    .hero-left {
+      background: var(--bg-mid);
+      padding: 80px 64px 80px 80px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--primary);
+      display: block;
+    }
+    .hero-h1 {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 52px;
+      font-weight: 400;
+      line-height: 1.25;
+      color: var(--bg-dark);
+      margin-bottom: 16px;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--primary);
+    }
+    .hero-tagline {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.9;
+      margin-bottom: 40px;
+      max-width: 380px;
+    }
+    .hero-cta {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 56px;
+      flex-wrap: wrap;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+    .stat-num {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 36px;
+      color: var(--text);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-num small { font-size: 18px; }
+    .stat-label {
+      font-size: 11px;
+      color: var(--text-sub);
+      letter-spacing: 0.06em;
+    }
+    .hero-right {
+      background: var(--bg2);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-badge {
+      position: absolute;
+      bottom: 40px;
+      left: -20px;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      width: 200px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+    .badge-title { font-size: 11px; color: var(--text-sub); margin-bottom: 4px; }
+    .badge-text  { font-size: 13px; color: var(--text); font-weight: 500; }
+
+    /* ── Concept ── */
+    .concept {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .concept-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .concept-quote {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 22px;
+      font-style: italic;
+      line-height: 1.7;
+      color: var(--text);
+      margin: 24px 0;
+      padding-left: 24px;
+      border-left: 2px solid var(--primary);
+    }
+    .concept-body {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 2;
+    }
+    .concept-right {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    /* ── Why ── */
+    .why {
+      background: var(--bg-mid);
+    }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    /* ── Services ── */
+    .services-section {
+      background: var(--bg);
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    /* ── Price (dark) ── */
+    .price-section {
+      background: var(--bg-dark);
+      padding: 96px 80px;
+    }
+    .price-section .label        { color: var(--dark-label); }
+    .price-section .section-title { color: #fff; }
+    .price-section .section-sub  { color: var(--dark-sub); }
+    .price-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+    .price-duration { font-size: 11px; letter-spacing: 0.12em; color: var(--dark-note); margin-bottom: 8px; }
+    .price-amount {
+      font-family: 'M PLUS Rounded 1c', sans-serif;
+      font-size: 32px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .price-unit { font-size: 11px; color: var(--dark-note); }
+    .price-notes {
+      display: flex;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--dark-border);
+      flex-wrap: wrap;
+    }
+    .price-note {
+      font-size: 12px;
+      color: var(--dark-note);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .price-note::before { content: '＊'; color: var(--dark-label); font-size: 10px; }
+
+    /* ── Flow ── */
+    .flow-section {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 96px 80px;
+    }
+
+    /* ── Profile ── */
+    .profile-section {
+      background: var(--bg);
+      padding: 96px 80px;
+    }
+    .profile-inner {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 72px;
+      align-items: start;
+    }
+    .profile-name { font-size: 22px; font-weight: 500; margin-bottom: 4px; }
+    .profile-role { font-size: 12px; color: var(--text-sub); letter-spacing: 0.06em; margin-bottom: 24px; }
+    .profile-body { font-size: 14px; color: var(--text-sub); line-height: 2; margin-bottom: 24px; }
+    .profile-tags { margin-bottom: 32px; }
+
+    /* ── Blog ── */
+    .blog-section {
+      background: var(--bg-mid);
+      padding: 96px 80px;
+    }
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    /* ── CTA ── */
+    .cta-section {
+      background: var(--primary);
+      text-align: center;
+      padding: 96px 80px;
+    }
+    .cta-section .section-title { color: #fff; font-size: 40px; margin-bottom: 16px; }
+    .cta-section p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 40px; line-height: 1.9; }
+    .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+    @media (max-width: 1024px) {
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 60px 40px 56px; }
+      .hero-h1 { font-size: 38px; }
+      .hero-right { min-height: 360px; }
+      .concept-grid { grid-template-columns: 1fr; gap: 40px; }
+      .why-grid { grid-template-columns: repeat(2, 1fr); }
+      .price-grid { grid-template-columns: repeat(2, 1fr); }
+      .profile-inner { grid-template-columns: 200px 1fr; gap: 40px; }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .price-section, .flow-section, .profile-section, .blog-section { padding: 72px 40px; }
+    }
+    @media (max-width: 640px) {
+      .hero-left { padding: 48px 20px; }
+      .hero-h1 { font-size: 30px; }
+      .hero-cta { flex-direction: column; align-items: flex-start; }
+      .why-grid, .services-grid, .price-grid, .blog-grid { grid-template-columns: 1fr; }
+      .profile-inner { grid-template-columns: 1fr; gap: 32px; }
+      .price-section, .flow-section, .profile-section, .blog-section { padding: 56px 20px; }
+      .cta-section { padding: 56px 20px; }
+      .cta-buttons { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header>
+  <a href="./" class="header-logo">
+    <div class="ph-logo">More Friends</div>
+  </a>
+  <nav>
+    <a href="./service.html">サービス内容</a>
+    <a href="./price.html">料金プラン</a>
+    <a href="./flow.html">利用の流れ</a>
+    <a href="./sitter.html">シッター紹介</a>
+    <a href="./blog.html">ブログ</a>
+    <a href="#contact" class="btn-line">🟢 LINEで相談</a>
+  </nav>
+</header>
+
+<!-- ========== 1. HERO ========== -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Pet Sitting Service</div>
+    <h1 class="hero-h1">
+      そっと心に触れる、<br>
+      <em>友達のような</em><br>
+      存在でありたい。
+    </h1>
+    <p class="hero-tagline">
+      かけがえのない大切なペットさんと飼い主さまの<br>
+      不安を「安心」に変え、寂しいお留守番を<br>
+      「楽しいイベント」に変えるペットシッターサービスです。
+    </p>
+    <div class="hero-cta">
+      <a href="contact.html" class="btn-cta-main">まず無料カウンセリング</a>
+      <a href="service.html" class="btn-outline">サービスを見る</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">60<small>分〜</small></div>
+        <div class="stat-label">シッティング対応</div>
+      </div>
+      <div>
+        <div class="stat-num">東京<small>/千葉</small></div>
+        <div class="stat-label">対応エリア</div>
+      </div>
+      <div>
+        <div class="stat-num">24h</div>
+        <div class="stat-label">LINEで相談受付</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="ph-img" style="width:100%; height:100%; min-height:480px; border-radius:0;" data-label="メイン写真 / シッターとペット"></div>
+    <div class="hero-badge">
+      <div class="badge-title">カウンセリング</div>
+      <div class="badge-text">初回 実質無料</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 2. コンセプト ========== -->
+<section class="concept">
+  <div class="concept-grid">
+    <div>
+      <span class="label">About More Friends</span>
+      <h2 class="section-title">More Friends<br>とは？</h2>
+      <blockquote class="concept-quote">
+        不安なご不在時間を、安心へ。<br>
+        寂しいお留守番を、<br>スペシャルな時間へ。
+      </blockquote>
+      <p class="concept-body">
+        More Friendsは、ペットシッターという枠を超えて、ペットさんにとっての「ベストフレンド」を目指しています。
+        お世話はタスクではなく、信頼関係を築くプロセス。飼い主さまの普段の生活の空気感を、できる限り再現することを大切にしています。
+      </p>
+      <a href="about.html" class="btn-outline" style="margin-top:32px; font-size:12px; padding:10px 28px;">More Friendsの想いを読む</a>
+    </div>
+    <div class="concept-right">
+      <div class="concept-card">
+        <div class="concept-card-icon">😰</div>
+        <div>
+          <div class="concept-card-title">お留守番中の不安を解消</div>
+          <div class="concept-card-text">「ちゃんと食べてるかな」「寂しくないかな」——飼い主さまが抱える不安を、信頼できるシッターが安心に変えます。</div>
+        </div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card-icon">🐾</div>
+        <div>
+          <div class="concept-card-title">ペットのストレスをゼロに</div>
+          <div class="concept-card-text">慣れ親しんだお家での生活リズムを守ります。ペットホテルへの移動も、見知らぬ環境への適応も必要ありません。</div>
+        </div>
+      </div>
+      <div class="concept-card">
+        <div class="concept-card-icon">💬</div>
+        <div>
+          <div class="concept-card-title">ペットの友達になる存在</div>
+          <div class="concept-card-text">人にもペットにも「心許せる友達」でありたい——それがMore Friendsという名前の由来です。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 3. Why More Friends ========== -->
+<section class="why">
+  <div class="section-header">
+    <span class="label">Why More Friends</span>
+    <h2 class="section-title">選ばれる3つの理由</h2>
+    <p class="section-sub">ペットホテルや他のシッターと、何が違うのか。More Friendsが大切にしていることをお伝えします。</p>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-num">01</div>
+      <div class="why-title">自宅でいつも通りの生活を守る</div>
+      <div class="why-text">慣れ親しんだ環境・においの中で過ごすことが、ペットの心身にとって最もストレスフリー。ペットホテルへの移動なし、環境変化なし。</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">02</div>
+      <div class="why-title">信頼関係から始まるシッティング</div>
+      <div class="why-text">初回カウンセリングで必ず対面し、ペットさんのペースで関係を築きます。8割のペットは5〜10分で打ち解けます。突然のシッティングはしません。</div>
+    </div>
+    <div class="why-card">
+      <div class="why-num">03</div>
+      <div class="why-title">動物取扱責任者による安心品質</div>
+      <div class="why-text">シッター椎名春香は動物取扱責任者の資格を保有。大手シッター会社での経験を経て独立。一頭一頭の個性に合ったケアを提供します。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 4. サービス概要 ========== -->
+<section class="services-section">
+  <div class="section-header">
+    <span class="label">Services</span>
+    <h2 class="section-title">サービス内容</h2>
+    <p class="section-sub">日常のお留守番から急なお出かけまで、さまざまなシーンに対応します。</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-item">
+      <div class="service-icon">🏠</div>
+      <div>
+        <div class="service-title">出社中のお留守番</div>
+        <div class="service-text">お仕事中の定期的なシッティング。毎日のルーティンを守ることで、ペットの生活リズムを安定させます。</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">✈️</div>
+      <div>
+        <div class="service-title">旅行・出張中のケア</div>
+        <div class="service-text">数日間の連続シッティングにも対応。ご不在中も毎日状況をご報告します。</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🌙</div>
+      <div>
+        <div class="service-title">急な残業・深夜帰宅</div>
+        <div class="service-text">突然の長時間不在も、事前登録済みのお客様には柔軟に対応。夜間・早朝は割増料金が適用されます。</div>
+      </div>
+    </div>
+    <div class="service-item">
+      <div class="service-icon">🦮</div>
+      <div>
+        <div class="service-title">お散歩代行</div>
+        <div class="service-text">シッティング中のお散歩はもちろん、お散歩単体でのご依頼も承ります（要カウンセリング）。</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:40px; text-align:center;">
+    <a href="service.html" class="btn-outline">サービス詳細を見る</a>
+  </div>
+</section>
+
+<!-- ========== 5. 料金サマリー ========== -->
+<section class="price-section">
+  <div class="section-header">
+    <span class="label">Pricing</span>
+    <h2 class="section-title" style="color:#fff;">料金プラン</h2>
+    <p class="section-sub" style="color:var(--dark-sub);">すべての料金は明朗会計。初回カウンセリングはご予約確定で実質無料です。</p>
+  </div>
+  <div class="price-grid">
+    <div class="price-card">
+      <div class="price-duration">60 MIN</div>
+      <div class="price-amount">6,600</div>
+      <div class="price-unit">円 (税込)</div>
+    </div>
+    <div class="price-card featured">
+      <div class="price-duration">90 MIN</div>
+      <div class="price-amount">9,900</div>
+      <div class="price-unit">円 (税込) ／ 人気</div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">120 MIN</div>
+      <div class="price-amount">13,200</div>
+      <div class="price-unit">円 (税込)</div>
+    </div>
+    <div class="price-card">
+      <div class="price-duration">180 MIN</div>
+      <div class="price-amount">16,500</div>
+      <div class="price-unit">円 (税込)</div>
+    </div>
+  </div>
+  <div class="price-notes">
+    <div class="price-note">夜間・早朝 (21:00〜9:00) は20%割増</div>
+    <div class="price-note">前日・当日予約は20%割増</div>
+    <div class="price-note">GW・お盆・年末年始は20%割増</div>
+    <div class="price-note">当日延長は15分2,200円</div>
+  </div>
+  <div style="margin-top:40px; text-align:center;">
+    <a href="price.html" class="btn-cta-white">料金の詳細を見る</a>
+  </div>
+</section>
+
+<!-- ========== 6. 利用の流れ ========== -->
+<section class="flow-section">
+  <div class="section-header">
+    <span class="label">How It Works</span>
+    <h2 class="section-title">ご利用の流れ</h2>
+    <p class="section-sub">はじめてのご依頼も、4ステップでスムーズに。まずはお気軽にお問い合わせください。</p>
+  </div>
+  <div class="flow-steps">
+    <div class="flow-step">
+      <div class="flow-step-num">STEP 01</div>
+      <div class="flow-icon">📩</div>
+      <div class="flow-step-title">お問い合わせ</div>
+      <div class="flow-step-text">LINEまたはフォームからご連絡ください。希望日程や状況を簡単に教えていただきます。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">STEP 02</div>
+      <div class="flow-icon">🤝</div>
+      <div class="flow-step-title">無料カウンセリング</div>
+      <div class="flow-step-text">ペットさんとの初対面。性格・生活リズム・ご要望をじっくりヒアリングします。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">STEP 03</div>
+      <div class="flow-icon">💳</div>
+      <div class="flow-step-title">お支払い・鍵の受け渡し</div>
+      <div class="flow-step-text">シッティング3日前までにお支払い完了。当日の鍵の受け渡し方法を確認します。</div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-step-num">STEP 04</div>
+      <div class="flow-icon">🐶</div>
+      <div class="flow-step-title">シッティング当日</div>
+      <div class="flow-step-text">訪問後はお写真・レポートをご報告。安心してお仕事・旅行をお楽しみください。</div>
+    </div>
+  </div>
+  <div style="margin-top:56px; text-align:center;">
+    <a href="flow.html" class="btn-outline">詳しい流れを確認する</a>
+  </div>
+</section>
+
+<!-- ========== 7. シッター紹介 ========== -->
+<section class="profile-section">
+  <div class="profile-inner">
+    <div>
+      <div class="ph-img" style="height:300px; border-radius:8px;" data-label="シッター写真 / 椎名春香"></div>
+    </div>
+    <div>
+      <span class="label">Sitter Profile</span>
+      <div class="profile-name">椎名 春香</div>
+      <div class="profile-role">動物取扱責任者 / More Friends 代表シッター</div>
+      <p class="profile-body">
+        大手ペットシッター会社での経験を経て、「お世話はタスクではない」という信念のもとMore Friendsを創業。
+        ペットさんが安心して心身ともに安定して過ごせることを最大の目的に、一頭一頭の個性に寄り添ったシッティングを実践しています。
+      </p>
+      <div class="tags profile-tags">
+        <span class="tag">動物取扱責任者</span>
+        <span class="tag">東京都・千葉県対応</span>
+        <span class="tag">犬・猫・小動物</span>
+      </div>
+      <a href="sitter.html" class="btn-outline" style="font-size:12px; padding:10px 28px;">プロフィール詳細を見る</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 8. ブログ最新記事 ========== -->
+<section class="blog-section">
+  <div class="section-header">
+    <span class="label">Blog</span>
+    <h2 class="section-title">お役立ち情報</h2>
+    <p class="section-sub">ペットケアのヒントや、More Friendsの日常をお届けします。</p>
+  </div>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <div class="ph-img" style="height:180px;" data-label="記事サムネイル"></div>
+      <div class="blog-body">
+        <div class="blog-cat">ペットケア</div>
+        <div class="blog-title">お留守番が苦手な犬でも安心できる環境づくり5つのポイント</div>
+        <div class="blog-date">2026.03.10</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="ph-img" style="height:180px;" data-label="記事サムネイル"></div>
+      <div class="blog-body">
+        <div class="blog-cat">お役立ち情報</div>
+        <div class="blog-title">ペットホテルとペットシッター、どちらが向いている？比較チェックリスト</div>
+        <div class="blog-date">2026.02.28</div>
+      </div>
+    </div>
+    <div class="blog-card">
+      <div class="ph-img" style="height:180px;" data-label="記事サムネイル"></div>
+      <div class="blog-body">
+        <div class="blog-cat">シッターの日常</div>
+        <div class="blog-title">初めてのカウンセリングで必ずお伝えしていること</div>
+        <div class="blog-date">2026.02.14</div>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:40px; text-align:center;">
+    <a href="blog.html" class="btn-outline">ブログ一覧を見る</a>
+  </div>
+</section>
+
+<!-- ========== 9. CTA セクション ========== -->
+<section class="cta-section" id="contact">
+  <span class="label">Get Started</span>
+  <h2 class="section-title">まず、気軽にご相談ください。</h2>
+  <p>
+    初回カウンセリングはご予約確定で実質無料。<br>
+    ペットさんと飼い主さまにとって、本当に合うシッターかどうかを一緒に確かめましょう。
+  </p>
+  <div class="cta-buttons">
+    <a href="contact.html" class="btn-cta-white">無料カウンセリングを申し込む</a>
+    <a href="#" class="btn-line-lg">🟢 LINEで気軽に相談する</a>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer>
+  <div class="footer-top">
+    <div>
+      <div class="ph-logo" style="margin-bottom:16px;">More Friends</div>
+      <div class="footer-tagline">
+        そっと心に触れる、<br>友達のような存在でありたい。<br><br>
+        東京都・千葉県のペットシッティングサービス
+      </div>
+    </div>
+    <div class="footer-nav">
+      <div class="footer-nav-col">
+        <h4>Service</h4>
+        <ul>
+          <li><a href="about.html">More Friendsとは</a></li>
+          <li><a href="service.html">サービス内容</a></li>
+          <li><a href="price.html">料金プラン</a></li>
+          <li><a href="cancel.html">キャンセルポリシー</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="sitter.html">シッター紹介</a></li>
+          <li><a href="flow.html">利用の流れ</a></li>
+          <li><a href="area.html">対応エリア</a></li>
+          <li><a href="reviews.html">お客様の声</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Info</h4>
+        <ul>
+          <li><a href="blog.html">ブログ</a></li>
+          <li><a href="contact.html">お問い合わせ</a></li>
+          <li><a href="#">プライバシーポリシー</a></li>
+          <li><a href="#">利用規約</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 More Friends. All rights reserved.</span>
+    <span>動物取扱責任者：椎名春香 ／ 東京都・千葉県</span>
+  </div>
+</footer>
+
+</body>
+</html>

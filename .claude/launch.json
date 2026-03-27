@@ -1,0 +1,49 @@
+{
+  "version": "1.0",
+  "configurations": [
+    {
+      "name": "live-server (npx)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "live-server",
+        ".",
+        "--port=5500",
+        "--no-browser"
+      ],
+      "port": 5500
+    },
+    {
+      "name": "http-server (npx)",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": [
+        "http-server",
+        ".",
+        "-p",
+        "8080",
+        "--cors",
+        "-c-1"
+      ],
+      "port": 8080
+    },
+    {
+      "name": "Python 3 built-in server",
+      "runtimeExecutable": "python",
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "3000"
+      ],
+      "port": 3000
+    },
+    {
+      "name": "Python 2 built-in server",
+      "runtimeExecutable": "python2",
+      "runtimeArgs": [
+        "-m",
+        "SimpleHTTPServer",
+        "3000"
+      ],
+      "port": 3000
+    }
+  ]
+}

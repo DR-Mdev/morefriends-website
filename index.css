@@ -1,0 +1,347 @@
+/* ── Hero (トップページ専用) ── */
+.hero {
+  padding-top: 64px;
+  min-height: 100dvh; /* 100vh → 100dvh: iOS Safari対応 */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.hero-left {
+  background: var(--bg-mid);
+  padding: 80px 64px 80px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.hero-eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--primary);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--primary);
+  display: block;
+}
+
+.hero-h1 {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 52px;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--bg-dark);
+  margin-bottom: 16px;
+}
+
+.hero-h1 em {
+  font-style: italic;
+  color: var(--primary);
+}
+
+.hero-tagline {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 1.9;
+  margin-bottom: 40px;
+  max-width: 380px;
+}
+
+.hero-cta {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 56px;
+  flex-wrap: wrap;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  border-top: 1px solid var(--border);
+}
+
+.stat-num {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 36px;
+  color: var(--text);
+  line-height: 1;
+  margin-bottom: 4px;
+}
+
+.stat-num small {
+  font-size: 18px;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+.hero-right {
+  background: var(--bg2);
+  position: relative;
+}
+
+/* ── Concept ── */
+.concept {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.concept-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.concept-quote {
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-size: 22px;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--text);
+  margin: 24px 0;
+  padding-left: 24px;
+  border-left: 2px solid var(--primary);
+}
+
+.concept-body {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 2;
+}
+
+.concept-right {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* ── Why ── */
+.why {
+  background: var(--bg-mid);
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* ── Services ── */
+.services-section {
+  background: var(--bg);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ── Price ── */
+.price-section {
+  background: var(--bg-mid);
+  padding: 96px 80px;
+}
+
+.price-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+/* wireframe-base.css の text-align:center を上書き */
+.price-card {
+  text-align: left;
+}
+
+/* ── Flow ── */
+.flow-section {
+  background: var(--bg-dark);
+  padding: 96px 80px;
+}
+
+.flow-section .label          { color: var(--dark-label); }
+.flow-section .section-title  { color: #fff; }
+.flow-section .section-sub    { color: var(--dark-sub); }
+.flow-section .flow-step-num  { color: var(--primary); }
+.flow-section .flow-step-title { color: #fff; }
+.flow-section .flow-step-text  { color: var(--dark-sub); }
+.flow-section .flow-icon      { background: rgba(200, 96, 122, 0.18); }
+
+/* ── Profile ── */
+.profile-section {
+  background: var(--bg);
+  padding: 96px 80px;
+}
+
+.profile-inner {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+.profile-name {
+  font-size: 22px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.profile-role {
+  font-size: 13px;
+  color: var(--text);
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.profile-body {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 400;
+  line-height: 2;
+  margin-bottom: 24px;
+}
+
+.profile-tags {
+  margin-bottom: 32px;
+}
+
+/* ── Blog ── */
+.blog-section {
+  background: var(--bg-mid);
+  padding: 96px 80px;
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* ── Additions ── */
+.btn-outline-sm {
+  font-size: 12px;
+  padding: 10px 28px;
+}
+
+.section-link {
+  margin-top: 32px;
+  display: inline-block;
+}
+
+.section-more {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.section-more.lg {
+  margin-top: 56px;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .hero-left {
+    padding: 60px 40px 56px;
+  }
+
+  .hero-h1 {
+    font-size: 38px;
+  }
+
+  .hero-right {
+    min-height: 360px;
+  }
+
+  .concept-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .why-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .price-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .profile-inner {
+    grid-template-columns: 200px 1fr;
+    gap: 40px;
+  }
+
+  .blog-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .price-section,
+  .flow-section,
+  .profile-section,
+  .blog-section {
+    padding: 72px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .hero-left {
+    padding: 48px 20px;
+  }
+
+  .hero-h1 {
+    font-size: 30px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .why-grid,
+  .services-grid,
+  .price-grid,
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-inner {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .price-section,
+  .flow-section,
+  .profile-section,
+  .blog-section {
+    padding: 56px 20px;
+  }
+}
