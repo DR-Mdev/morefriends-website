@@ -80,7 +80,7 @@ body {
   background: var(--bg);
   color: var(--text);
   font-family: 'Zen Maru Gothic', sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.8;
   font-size: 15px;
 }
@@ -614,6 +614,50 @@ section {
   line-height: 1.8;
 }
 
+/* ---- How It Works カード (index.html) ---- */
+.flow-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.flow-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 28px 20px;
+}
+
+.flow-card-num {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.flow-card-title {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.flow-card-text {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text);
+  line-height: 1.85;
+  margin-bottom: 14px;
+}
+
+.flow-card-note {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-sub);
+}
+
 /* =============================================
    SITTER PAGE HEADER
    ============================================= */
@@ -960,26 +1004,10 @@ footer {
    color: var(--text-sub) + font-weight: 300 の組み合わせを解消
    ============================================= */
 
-/* --- about.html --- */
+/* --- about.html / contact.html / sitter.html 共通 --- */
 .page-header-lead,
-.def-row-col,
-.promise-text,
-.philosophy-body,
-.philosophy-point-text,
-.trust-stat-label,
-.trust-step-text,
-.target-card-text,
-.target-note,
-
-/* --- contact.html --- */
-.contact-form-sub,
-.form-hint,
-.form-privacy,
-.info-row,
-.access-item,
 
 /* --- flow.html --- */
-.flow-card-text,
 .faq-a-text,
 
 /* --- area.html --- */
@@ -993,14 +1021,6 @@ footer {
 /* --- blog-detail.html --- */
 .article-meta,
 .author-bio,
-
-/* --- cancel.html --- */
-.page-header-sub,
-.counseling-fee-label,
-.counseling-fee-unit,
-.counseling-desc,
-.notice-list li,
-.back-banner-text,
 
 /* --- service.html --- */
 .pet-note,

@@ -14,7 +14,7 @@
     body {
       background: var(--bg);
       font-family: 'M PLUS Rounded 1c', sans-serif;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--text);
       font-size: 15px;
       line-height: 1.85;
@@ -98,7 +98,7 @@
     /* ---------- 本文エリア (3) ---------- */
     .article-body {
       font-size: 15px;
-      font-weight: 300;
+      font-weight: 400;
       line-height: 2;
       color: var(--text);
     }
@@ -267,6 +267,12 @@
       display: block;
       text-align: center;
     }
+    .sidebar-cta .btn-ig {
+      display: block;
+      text-align: center;
+      margin-top: 10px;
+      padding: 11px 24px;
+    }
     .toc-list {
       list-style: none;
       margin: 0; padding: 0;
@@ -369,6 +375,18 @@
 
 
 
+    /* ── マーカーアンダーライン ── */
+    .marker {
+      background-image: linear-gradient(#FEE55F, #FEE55F);
+      background-repeat: no-repeat;
+      background-size: 0% 0.35em;
+      background-position: 0 90%;
+      transition: background-size 0.55s cubic-bezier(0.4, 0, 0.2, 1);
+      padding-bottom: 1px;
+    }
+    .marker.is-active {
+      background-size: 100% 0.35em;
+    }
   </style>
 </head>
 <body>
@@ -435,7 +453,7 @@
     <!-- (3) 本文エリア -->
     <div class="article-body">
 
-      <p>ペットシッターを初めて利用しようとしたとき、「本当に大丈夫かな?」「ペットがストレスを感じないだろうか」と不安を感じる方は多いと思います。この記事では、信頼できるシッターを選ぶためのポイントと、当日までに準備しておくべきことをお伝えします。</p>
+      <p>ペットシッターを初めて利用しようとしたとき、<span class="marker">「本当に大丈夫かな?」「ペットがストレスを感じないだろうか」と不安を感じる方は多いと思います。この記事では、信頼できるシッターを選ぶためのポイントと、当日までに準備しておくべきことをお伝えします。</p>
 
       <h2>ペットシッターとペットホテルの違い</h2>
 
@@ -459,7 +477,7 @@
 
       <h2>シッティング時間は「+30分」をおすすめする理由</h2>
 
-      <p>シッティング時間に余裕を持たせるのには2つの理由があります。1つは信頼関係の構築のため。もう1つは「お世話 = 作業タスク」ではないというスタンスからです。飼い主さまが在宅しているときのような、自然な時間の流れを再現することを大切にしています。</p>
+      <p>シッティング時間に余裕を持たせるのには2つの理由があります。<span class="marker">1つは信頼関係の構築のため。</span>もう1つは「お世話 = 作業タスク」ではないというスタンスからです。飼い主さまが在宅しているときのような、自然な時間の流れを再現することを大切にしています。</p>
 
       <p>時間に追われた状態でのシッティングは、ペットさんのサインを見落としがちになります。余裕のある時間設定が、質の高いケアへの近道です。</p>
 
@@ -680,6 +698,21 @@ document.querySelector('.hamburger')?.addEventListener('click', function() {
   nav.setAttribute('aria-hidden', !isOpen);
 });
 </script>
+
+  <script>
+    const markers = document.querySelectorAll('.marker');
+    if (markers.length) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-active');
+            io.unobserve(entry.target); // 一度だけ発火
+          }
+        });
+      }, { threshold: 0.6 });
+      markers.forEach(el => io.observe(el));
+    }
+  </script>
 
 </body>
 </html>
