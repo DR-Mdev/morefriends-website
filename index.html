@@ -196,43 +196,51 @@
 
     <!-- ========== 5. 料金サマリー ========== -->
     <!-- parts/price-summary.php -->
-    <section class="price-section">
-      <div class="section-header">
-        <span class="label">Pricing</span>
-        <h2 class="section-title">料金プラン</h2>
-        <p class="section-sub">すべての料金は明朗会計。初回カウンセリングはご予約確定で実質無料です。</p>
+    <section class="basic-price-section">
+      <span class="section-label">Basic Pricing</span>
+      <h2>基本料金</h2>
+      <p class="section-desc">シッティング時間に応じた基本料金です。すべて税込・明朗会計です。</p>
+
+      <div class="price-value-note">
+        <strong>なぜ60分6,600円なのか。</strong><br>
+        単なるお世話の時間ではなく、ペットさんとの信頼関係を育む時間です。
+        到着後すぐに行動せず、まずペットさんのペースに寄り添う「余白の時間」を含めているからこそ、心身ともに安定したシッティングが実現できます。
       </div>
+
       <div class="price-grid">
         <div class="price-card">
-          <div class="price-duration">60分</div>
-          <div class="price-amt-wrap"><span class="price-amount">6,600</span><span class="price-yen">円</span></div>
-          <div class="price-unit">（税込）</div>
+          <div class="price-duration">シッティング 60分</div>
+          <div class="price-amount">¥6,600</div>
+          <div class="price-unit">税込</div>
         </div>
         <div class="price-card featured">
-          <div class="price-badge">人気</div>
-          <div class="price-duration">90分</div>
-          <div class="price-amt-wrap"><span class="price-amount">9,900</span><span class="price-yen">円</span></div>
-          <div class="price-unit">（税込）</div>
+          <div class="price-duration">シッティング 90分</div>
+          <div class="price-amount">¥9,900</div>
+          <div class="price-unit">税込</div>
+          <div class="price-note-tag">人気プラン</div>
         </div>
         <div class="price-card">
-          <div class="price-duration">120分</div>
-          <div class="price-amt-wrap"><span class="price-amount">13,200</span><span class="price-yen">円</span></div>
-          <div class="price-unit">（税込）</div>
+          <div class="price-duration">シッティング 120分</div>
+          <div class="price-amount">¥13,200</div>
+          <div class="price-unit">税込</div>
         </div>
         <div class="price-card">
-          <div class="price-duration">180分</div>
-          <div class="price-amt-wrap"><span class="price-amount">16,500</span><span class="price-yen">円</span></div>
-          <div class="price-unit">（税込）</div>
+          <div class="price-duration">シッティング 180分</div>
+          <div class="price-amount">¥16,500</div>
+          <div class="price-unit">税込</div>
+          <div class="price-note-tag">約17%割引</div>
         </div>
       </div>
-      <div class="price-notes">
-        <div class="price-note">夜間・早朝（21:00〜9:00）は20%割増</div>
-        <div class="price-note">前日・当日予約は20%割増</div>
-        <div class="price-note">GW・お盆・年末年始は20%割増</div>
-        <div class="price-note">当日延長は15分2,200円</div>
+
+      <div class="price-footnotes">
+        <div class="price-footnote">夜間・早朝（21:00〜9:00）は20%割増</div>
+        <div class="price-footnote">前日・当日予約は20%割増</div>
+        <div class="price-footnote">GW・お盆・年末年始は20%割増</div>
+        <div class="price-footnote">当日延長は15分2,200円</div>
       </div>
+
       <div class="section-more">
-        <a href="./price.html" class="btn-cta-main">料金の詳細を見る</a>
+        <a href="./price.html" class="btn-cta-white">料金の詳細を見る</a>
       </div>
     </section>
 
@@ -244,33 +252,34 @@
         <h2 class="section-title">ご利用の流れ</h2>
         <p class="section-sub">はじめてのご依頼も、4ステップでスムーズに。まずはお気軽にお問い合わせください。</p>
       </div>
-      <div class="flow-steps">
-        <div class="flow-step">
-          <div class="flow-step-num">STEP 01</div>
+      <div class="flow-grid">
+        <div class="flow-card">
+          <div class="flow-card-num">STEP 01</div>
           <div class="flow-icon">📩</div>
-          <div class="flow-step-title">お問い合わせ</div>
-          <div class="flow-step-text">LINEまたはフォームからご連絡ください。希望日程や状況を簡単に教えていただきます。</div>
+          <div class="flow-card-title">お問い合わせ</div>
+          <div class="flow-card-text">LINEまたはフォームからご連絡ください。希望日程や状況を簡単に教えていただきます。</div>
+          <span class="flow-card-note">📍 LINE / フォームどちらでもOK</span>
         </div>
-        <div class="flow-arrow">›</div>
-        <div class="flow-step">
-          <div class="flow-step-num">STEP 02</div>
+        <div class="flow-card">
+          <div class="flow-card-num">STEP 02</div>
           <div class="flow-icon">🤝</div>
-          <div class="flow-step-title">無料カウンセリング</div>
-          <div class="flow-step-text">ペットさんとの初対面。性格・生活リズム・ご要望をじっくりヒアリングします。</div>
+          <div class="flow-card-title">無料カウンセリング</div>
+          <div class="flow-card-text">ペットさんとの初対面。性格・生活リズム・ご要望をじっくりヒアリングします。</div>
+          <span class="flow-card-note">⏱ 約60〜90分</span>
         </div>
-        <div class="flow-arrow">›</div>
-        <div class="flow-step">
-          <div class="flow-step-num">STEP 03</div>
+        <div class="flow-card">
+          <div class="flow-card-num">STEP 03</div>
           <div class="flow-icon">💳</div>
-          <div class="flow-step-title">お支払い・鍵の受け渡し</div>
-          <div class="flow-step-text">シッティング3日前までにお支払い完了。当日の鍵の受け渡し方法を確認します。</div>
+          <div class="flow-card-title">お支払い・鍵の受け渡し</div>
+          <div class="flow-card-text">シッティング3日前までにお支払い完了。当日の鍵の受け渡し方法を確認します。</div>
+          <span class="flow-card-note">⚠ 入金確認後に進みます</span>
         </div>
-        <div class="flow-arrow">›</div>
-        <div class="flow-step">
-          <div class="flow-step-num">STEP 04</div>
+        <div class="flow-card">
+          <div class="flow-card-num">STEP 04</div>
           <div class="flow-icon">🐶</div>
-          <div class="flow-step-title">シッティング当日</div>
-          <div class="flow-step-text">訪問後はお写真・レポートをご報告。安心してお仕事・旅行をお楽しみください。</div>
+          <div class="flow-card-title">シッティング当日</div>
+          <div class="flow-card-text">訪問後はお写真・レポートをご報告。安心してお仕事・旅行をお楽しみください。</div>
+          <span class="flow-card-note">📸 写真付きレポートをお届け</span>
         </div>
       </div>
       <div class="section-more lg">

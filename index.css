@@ -160,10 +160,52 @@
   overflow: hidden;
 }
 
-/* ── Price ── */
-.price-section {
-  background: var(--bg-mid);
-  padding: 96px 80px;
+/* ── Price (basic-price-section) ── */
+.basic-price-section {
+  background: var(--bg-dark);
+  padding: 80px 80px;
+}
+
+.basic-price-section .section-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--dark-label);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.basic-price-section h2 {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--bg);
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.basic-price-section .section-desc {
+  font-size: 14px;
+  color: var(--dark-sub);
+  margin-bottom: 48px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.price-value-note {
+  background: rgba(200, 96, 122, 0.15);
+  border-left: 3px solid var(--primary);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 24px;
+  margin-bottom: 40px;
+  font-size: 13px;
+  color: var(--dark-sub);
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.price-value-note strong {
+  color: var(--dark-label);
+  font-weight: 500;
 }
 
 .price-grid {
@@ -173,24 +215,160 @@
   margin-bottom: 32px;
 }
 
-/* wireframe-base.css の text-align:center を上書き */
 .price-card {
-  text-align: left;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 32px 24px;
+  text-align: center;
+}
+
+.price-card.featured {
+  background: var(--primary);
+  border-color: var(--primary);
+  position: relative;
+}
+
+.price-card.featured::before {
+  content: 'おすすめ';
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  color: var(--primary);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  padding: 4px 14px;
+  border-radius: 20px;
+}
+
+.price-duration {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--dark-note);
+  margin-bottom: 12px;
+}
+
+.price-card.featured .price-duration { color: rgba(255, 255, 255, 0.6); }
+
+.price-amount {
+  font-size: 36px;
+  font-weight: 400;
+  color: var(--bg);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.price-unit {
+  font-size: 11px;
+  color: var(--dark-note);
+}
+
+.price-card.featured .price-unit { color: rgba(255, 255, 255, 0.6); }
+
+.price-note-tag {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 10px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--dark-label);
+  padding: 3px 10px;
+  border-radius: 20px;
+}
+
+.price-card.featured .price-note-tag {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+}
+
+.price-footnotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
+  margin-bottom: 40px;
+}
+
+.price-footnote {
+  font-size: 12px;
+  color: var(--dark-sub);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 400;
+}
+
+.price-footnote::before {
+  content: '※';
+  color: var(--dark-label);
+  font-size: 11px;
 }
 
 /* ── Flow ── */
 .flow-section {
-  background: var(--bg-dark);
+  background: var(--primary-d);
   padding: 96px 80px;
 }
 
-.flow-section .label          { color: var(--dark-label); }
-.flow-section .section-title  { color: #fff; }
-.flow-section .section-sub    { color: var(--dark-sub); }
-.flow-section .flow-step-num  { color: var(--primary); }
-.flow-section .flow-step-title { color: #fff; }
-.flow-section .flow-step-text  { color: var(--dark-sub); }
-.flow-section .flow-icon      { background: rgba(200, 96, 122, 0.18); }
+.flow-section .label         { color: rgba(255, 255, 255, 0.65); }
+.flow-section .section-title { color: #fff; }
+.flow-section .section-sub   { color: rgba(255, 255, 255, 0.75); font-weight: 400; }
+
+.flow-section .flow-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.flow-section .flow-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 32px 28px;
+}
+
+.flow-section .flow-card-num {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--primary);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+.flow-section .flow-icon {
+  margin-bottom: 16px;
+}
+
+.flow-section .flow-card-title {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.flow-section .flow-card-text {
+  font-size: 13px;
+  color: var(--text-sub);
+  line-height: 1.9;
+  font-weight: 400;
+}
+
+.flow-section .flow-card-note {
+  display: inline-block;
+  margin-top: 14px;
+  background: var(--primary-l);
+  color: var(--primary-d);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 100px;
+}
 
 /* ── Profile ── */
 .profile-section {
@@ -304,7 +482,7 @@
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .price-section,
+  .basic-price-section,
   .flow-section,
   .profile-section,
   .blog-section {
@@ -329,6 +507,7 @@
   .why-grid,
   .services-grid,
   .price-grid,
+  .flow-section .flow-grid,
   .blog-grid {
     grid-template-columns: 1fr;
   }
@@ -338,7 +517,7 @@
     gap: 32px;
   }
 
-  .price-section,
+  .basic-price-section,
   .flow-section,
   .profile-section,
   .blog-section {
