@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>シッター紹介 — More Friends</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe-base.css">
+<style>
+/* =============================================
+   ページ固有スタイル — sitter.html
+   wireframe-base.css に定義されていない要素のみここに書く
+   ============================================= */
+
+/* ===== GLOBAL (b1_final.html と同一) ===== */
+:root {
+  --bg:        #FDF7F9;
+  --bg2:       #FFF9FA;
+  --bg-dark:   #26170F;
+  --bg-mid:    #F2E4E8;
+  --primary:   #C8607A;
+  --primary-d: #A84D65;
+  --primary-l: #F4C8D2;
+  --accent:    #C8607A;
+  --accent-l:  #F4C8D2;
+  --text:      #26170F;
+  --text-sub:  #704040;
+  --border:    rgba(38,23,15,0.11);
+  --tag-bg:    #F4C8D2;
+  --tag-text:  #A84D65;
+  --flow-icon-bg:#F2E4E8;
+  --dark-label:  #F4C8D2;
+  --dark-sub:    rgba(244,200,210,0.65);
+  --dark-note:   rgba(244,200,210,0.4);
+  --dark-border: rgba(255,255,255,0.1);
+  --price-feat:  #C8607A;
+  --why-num-c:   #F4C8D2;
+  --stat-n:      #26170F;
+  --ph-bg:     #ECDDE1;
+  --ph-text:   #A07080;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+body {
+  background: var(--bg); color: var(--text);
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 300; line-height: 1.8; font-size: 15px;
+}
+.label {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--primary); display: block; margin-bottom: 10px;
+}
+.section-title {
+  font-size: 40px; font-weight: 400; color: var(--text); line-height: 1.3;
+}
+.section-sub {
+  font-size: 14px; color: var(--text-sub); margin-top: 12px;
+  max-width: 520px; line-height: 1.9;
+}
+.section-header { margin-bottom: 56px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag {
+  background: var(--tag-bg); color: var(--tag-text);
+  font-size: 11px; padding: 5px 14px;
+  border-radius: 100px; letter-spacing: 0.04em;
+}
+
+/* ===== HEADER ===== */
+header {
+  position: fixed; top:0; left:0; right:0; z-index:100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 48px; height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-logo {
+  display: flex; align-items: center;
+  background: var(--bg-dark); padding: 7px 18px;
+  border-radius: 6px; text-decoration: none;
+  color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+}
+/* ▲ ph-logo: 本番でロゴ画像に差し替え */
+.ph-logo { color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.06em; }
+nav { display: flex; align-items: center; gap: 28px; }
+nav a { font-size: 12px; letter-spacing: 0.08em; color: var(--text-sub); text-decoration: none; }
+.btn-line {
+  background: #06C755; color: #fff;
+  font-size: 12px; font-weight: 500; letter-spacing: 0.06em;
+  padding: 9px 18px; border-radius: 4px; text-decoration: none;
+}
+.hamburger {
+  display: none; flex-direction: column; gap: 5px;
+  background: none; border: none; cursor: pointer; padding: 4px;
+}
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text); border-radius: 2px; }
+.mobile-menu {
+  display: none; position: fixed; top: 64px; left: 0; right: 0;
+  background: rgba(255,255,255,0.98); border-bottom: 1px solid var(--border);
+  flex-direction: column; padding: 24px; gap: 20px; z-index: 99;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 14px; color: var(--text-sub); text-decoration: none; padding: 6px 0; border-bottom: 1px solid var(--border); }
+.mobile-menu .btn-line { border-bottom: none; margin-top: 4px; text-align:center; }
+
+/* ===== BUTTONS ===== */
+.btn-primary {
+  background: var(--primary); color: #fff;
+  font-size: 13px; letter-spacing: 0.08em;
+  padding: 14px 36px; border-radius: 4px;
+  text-decoration: none; display: inline-block;
+}
+.btn-outline {
+  background: transparent; color: var(--primary);
+  font-size: 13px; letter-spacing: 0.08em;
+  padding: 13px 35px; border-radius: 4px;
+  border: 1.5px solid var(--primary);
+  text-decoration: none; display: inline-block;
+}
+.btn-cta-white {
+  background: #fff; color: var(--primary);
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+  padding: 16px 44px; border-radius: 4px; text-decoration: none; display: inline-block;
+}
+.btn-line-lg {
+  background: #06C755; color: #fff;
+  font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+  padding: 16px 44px; border-radius: 4px; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+
+/* ===== ph-img ===== */
+/* ワイヤー確認用。height はすべてワイヤー仮値 — 本番削除対象 */
+.ph-img {
+  background: var(--ph-bg);
+  border-radius: 8px;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ph-text); font-size: 12px; letter-spacing: 0.08em;
+  position: relative;
+}
+.ph-img::after {
+  content: attr(data-label);
+  text-align: center; padding: 16px;
+}
+
+/* ===== PAGE HEADER ===== */
+/* parts/page-header.php */
+.page-header {
+  padding-top: 64px; /* ヘッダー固定分 */
+  background: var(--bg-mid);
+  padding-left: 80px; padding-right: 80px;
+  padding-bottom: 64px;
+  min-height: 280px;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  border-bottom: 1px solid var(--border);
+}
+.page-header__breadcrumb {
+  display: flex; gap: 8px; align-items: center;
+  font-size: 11px; color: var(--text-sub); letter-spacing: 0.06em;
+  margin-bottom: 20px;
+}
+.page-header__breadcrumb a { color: var(--text-sub); text-decoration: none; }
+.page-header__breadcrumb span { opacity: 0.5; }
+.page-header__label { /* .label 相当 */
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--primary); margin-bottom: 10px;
+}
+.page-header__h1 {
+  font-size: 48px; font-weight: 400; color: var(--text); line-height: 1.2;
+  margin-bottom: 12px;
+}
+.page-header__lead {
+  font-size: 14px; color: var(--text-sub); line-height: 1.9; max-width: 560px;
+}
+
+/* ===== SECTION 共通 ===== */
+section { padding: 96px 80px; }
+
+/* ===== PROFILE ===== */
+/* parts/sitter-profile.php */
+.sitter-profile { background: var(--bg); }
+.sitter-profile__inner {
+  display: grid; grid-template-columns: 340px 1fr; gap: 72px; align-items: start;
+}
+.sitter-profile__photo-wrap { position: relative; }
+.sitter-profile__photo {
+  width: 100%; aspect-ratio: 3/4;
+  /* ワイヤー確認用 height — 本番削除対象 */
+}
+.sitter-profile__badge {
+  position: absolute; bottom: -16px; right: -16px;
+  background: var(--primary); color: #fff;
+  border-radius: 8px; padding: 14px 20px;
+  font-size: 11px; letter-spacing: 0.06em; line-height: 1.8;
+  box-shadow: 0 4px 20px rgba(200,96,122,0.3);
+}
+.sitter-profile__badge-name { font-size: 20px; font-weight: 500; margin-bottom: 2px; }
+.sitter-profile__info { padding-top: 8px; }
+.sitter-profile__en {
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--primary); margin-bottom: 8px;
+}
+.sitter-profile__name {
+  font-size: 36px; font-weight: 400; color: var(--text);
+  margin-bottom: 4px; line-height: 1.2;
+}
+.sitter-profile__name-kana {
+  font-size: 12px; color: var(--text-sub); letter-spacing: 0.12em; margin-bottom: 24px;
+}
+.sitter-profile__intro {
+  font-size: 14px; color: var(--text-sub); line-height: 2; margin-bottom: 32px;
+  border-left: 2px solid var(--primary-l); padding-left: 20px;
+}
+.sitter-profile__meta { display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+.sitter-profile__meta-row {
+  display: flex; gap: 12px; align-items: baseline;
+  font-size: 13px;
+}
+.sitter-profile__meta-label {
+  font-size: 11px; color: var(--primary); letter-spacing: 0.08em;
+  min-width: 80px;
+}
+.sitter-profile__meta-value { color: var(--text-sub); line-height: 1.7; }
+
+/* ===== PHILOSOPHY ===== */
+/* parts/sitter-philosophy.php */
+.sitter-philosophy {
+  background: var(--bg-mid);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.sitter-philosophy__grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+}
+.sitter-philosophy__quote {
+  font-size: 26px; font-weight: 400; line-height: 1.7;
+  color: var(--text);
+  padding: 32px 36px;
+  background: var(--bg2);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  position: relative;
+  margin-bottom: 32px;
+}
+.sitter-philosophy__quote::before {
+  content: '"';
+  font-size: 80px; line-height: 1; color: var(--primary-l);
+  position: absolute; top: -16px; left: 20px;
+}
+.sitter-philosophy__quote em {
+  color: var(--primary); font-style: normal; font-weight: 500;
+}
+.sitter-philosophy__quote-source {
+  font-size: 12px; color: var(--text-sub); margin-top: 16px;
+  letter-spacing: 0.06em;
+}
+.sitter-philosophy__body {
+  font-size: 14px; color: var(--text-sub); line-height: 2.1;
+}
+.sitter-philosophy__body p + p { margin-top: 20px; }
+.sitter-philosophy__cards { display: flex; flex-direction: column; gap: 20px; }
+.sitter-philosophy__card {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 24px 28px;
+  display: flex; gap: 20px; align-items: flex-start;
+}
+.sitter-philosophy__card-icon {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: var(--primary-l); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 20px;
+}
+.sitter-philosophy__card-title {
+  font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px;
+}
+.sitter-philosophy__card-text {
+  font-size: 13px; color: var(--text-sub); line-height: 1.8;
+}
+
+/* ===== TRUST (信頼構築の物語) ===== */
+/* parts/sitter-trust.php */
+.sitter-trust { background: var(--bg2); border-bottom: 1px solid var(--border); }
+.sitter-trust__grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.sitter-trust__visual { position: relative; }
+.sitter-trust__story {
+  display: flex; flex-direction: column; gap: 0;
+}
+.sitter-trust__story-item {
+  display: flex; gap: 20px; padding-bottom: 36px; position: relative;
+}
+.sitter-trust__story-item:not(:last-child)::before {
+  content: '';
+  position: absolute; left: 19px; top: 44px;
+  width: 2px; bottom: 0;
+  background: linear-gradient(to bottom, var(--primary-l), transparent);
+}
+.sitter-trust__story-dot {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--primary-l); flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; z-index: 1;
+}
+.sitter-trust__story-title {
+  font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 8px; line-height: 1.5;
+}
+.sitter-trust__story-text {
+  font-size: 13px; color: var(--text-sub); line-height: 1.9;
+}
+.sitter-trust__story-highlight {
+  background: var(--primary-l); color: var(--primary-d);
+  font-size: 12px; padding: 3px 10px; border-radius: 4px;
+  display: inline-block; margin-top: 6px;
+}
+
+/* ===== NARE-RU PROCESS (馴れるプロセス) ===== */
+/* parts/sitter-nare-process.php */
+.sitter-nare { background: var(--bg-dark); }
+.sitter-nare .label { color: var(--dark-label); }
+.sitter-nare .section-title { color: var(--bg2); }
+.sitter-nare .section-sub { color: var(--dark-sub); }
+.sitter-nare__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 56px;
+}
+.sitter-nare__card {
+  background: rgba(255,255,255,0.06); border: 1px solid var(--dark-border);
+  border-radius: 8px; padding: 36px 28px;
+}
+.sitter-nare__card.featured {
+  background: var(--primary); border-color: var(--primary);
+}
+.sitter-nare__percent {
+  font-size: 56px; font-weight: 400; color: var(--dark-label);
+  line-height: 1; margin-bottom: 4px;
+}
+.sitter-nare__card.featured .sitter-nare__percent { color: #fff; }
+.sitter-nare__percent-unit {
+  font-size: 20px; color: var(--dark-sub);
+}
+.sitter-nare__card.featured .sitter-nare__percent-unit { color: rgba(255,255,255,0.7); }
+.sitter-nare__title {
+  font-size: 15px; font-weight: 500; color: var(--bg2);
+  margin-bottom: 12px; margin-top: 16px; line-height: 1.5;
+}
+.sitter-nare__text {
+  font-size: 13px; color: var(--dark-sub); line-height: 1.9;
+}
+.sitter-nare__card.featured .sitter-nare__text { color: rgba(255,255,255,0.8); }
+.sitter-nare__note {
+  margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--dark-border);
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 13px; color: var(--dark-sub); line-height: 1.9;
+}
+.sitter-nare__note::before { content: '🐾'; font-size: 20px; flex-shrink: 0; }
+
+/* ===== MORE FRIENDS NO IGI (意義) ===== */
+/* parts/sitter-meaning.php */
+.sitter-meaning { background: var(--bg); }
+.sitter-meaning__inner {
+  display: grid; grid-template-columns: 1fr 480px; gap: 80px; align-items: center;
+}
+.sitter-meaning__quote-big {
+  font-size: 32px; font-weight: 400; line-height: 1.65;
+  color: var(--text); margin-bottom: 32px;
+}
+.sitter-meaning__quote-big em {
+  color: var(--primary); font-style: normal;
+}
+.sitter-meaning__body {
+  font-size: 14px; color: var(--text-sub); line-height: 2.1;
+}
+.sitter-meaning__body p + p { margin-top: 20px; }
+.sitter-meaning__right { display: flex; flex-direction: column; gap: 16px; }
+.sitter-meaning__card {
+  background: var(--bg2); border: 1px solid var(--border); border-radius: 8px;
+  padding: 24px 28px; display: flex; gap: 16px; align-items: flex-start;
+}
+.sitter-meaning__card-icon {
+  font-size: 24px; flex-shrink: 0; margin-top: 2px;
+}
+.sitter-meaning__card-title {
+  font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px;
+}
+.sitter-meaning__card-text {
+  font-size: 12px; color: var(--text-sub); line-height: 1.8;
+}
+.sitter-meaning__tagline {
+  margin-top: 32px; padding: 28px 32px;
+  background: var(--primary); color: #fff;
+  border-radius: 8px; text-align: center;
+}
+.sitter-meaning__tagline-main { font-size: 22px; font-weight: 400; margin-bottom: 8px; line-height: 1.5; }
+.sitter-meaning__tagline-sub { font-size: 12px; color: rgba(255,255,255,0.75); letter-spacing: 0.06em; }
+
+/* ===== CREDENTIALS (資格・認定) ===== */
+/* parts/sitter-credentials.php */
+.sitter-credentials {
+  background: var(--bg-mid);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.sitter-credentials__grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.sitter-credentials__item {
+  background: var(--bg2); border: 1px solid var(--border);
+  border-radius: 8px; padding: 28px 24px;
+  display: flex; gap: 16px; align-items: flex-start;
+}
+.sitter-credentials__badge {
+  width: 48px; height: 48px; border-radius: 8px;
+  background: var(--primary-l);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.sitter-credentials__title {
+  font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 4px; line-height: 1.5;
+}
+.sitter-credentials__issuer {
+  font-size: 11px; color: var(--text-sub); letter-spacing: 0.04em;
+}
+
+/* ===== CTA SECTION ===== */
+.cta-section { background: var(--primary); text-align: center; }
+.cta-section .label { color: rgba(255,255,255,0.6); }
+.cta-section .section-title { color: #fff; font-size: 44px; margin-bottom: 16px; }
+.cta-section p { color: rgba(255,255,255,0.8); font-size: 14px; margin-bottom: 40px; line-height: 1.9; }
+.cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--bg-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 64px 80px 32px;
+  font-size: 13px;
+}
+.footer-top {
+  display: flex; gap: 80px;
+  padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.08); margin-bottom: 32px;
+}
+.footer-logo-wrap {
+  display: flex; flex-direction: column; gap: 16px; flex-shrink: 0;
+}
+.footer-logo-ph {
+  background: rgba(255,255,255,0.1);
+  padding: 7px 18px; border-radius: 6px;
+  color: #fff; font-size: 13px; font-weight: 500; letter-spacing: 0.06em;
+  display: inline-block; align-self: flex-start;
+}
+.footer-tagline { font-size: 13px; color: rgba(255,255,255,0.45); line-height: 1.9; }
+.footer-nav { display: flex; gap: 64px; flex: 1; }
+.footer-nav-col h4 { font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.35); margin-bottom: 16px; }
+.footer-nav-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-nav-col a { font-size: 12px; color: rgba(255,255,255,0.55); text-decoration: none; }
+.footer-bottom {
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 11px; color: rgba(255,255,255,0.3); flex-wrap: wrap; gap: 8px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+  header { padding: 0 20px; }
+  nav { display: none; }
+  .hamburger { display: flex; }
+
+  .page-header { padding: 80px 20px 40px; min-height: auto; }
+  .page-header__h1 { font-size: 32px; }
+
+  section { padding: 56px 20px; }
+
+  .sitter-profile__inner { grid-template-columns: 1fr; gap: 40px; }
+  .sitter-profile__badge { position: static; margin-top: 12px; display: inline-block; }
+
+  .sitter-philosophy__grid { grid-template-columns: 1fr; gap: 40px; }
+  .sitter-philosophy__quote { font-size: 18px; }
+
+  .sitter-trust__grid { grid-template-columns: 1fr; gap: 40px; }
+
+  .sitter-nare__grid { grid-template-columns: 1fr; }
+
+  .sitter-meaning__inner { grid-template-columns: 1fr; gap: 40px; }
+  .sitter-meaning__quote-big { font-size: 22px; }
+
+  .sitter-credentials__grid { grid-template-columns: 1fr; }
+
+  footer { padding: 40px 20px 20px; }
+  .footer-top { flex-direction: column; gap: 32px; }
+  .footer-nav { flex-wrap: wrap; gap: 32px; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; }
+
+  .cta-section .section-title { font-size: 28px; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .btn-cta-white, .btn-line-lg { width: 100%; text-align: center; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="/" class="header-logo">
+    <div class="ph-logo">More Friends</div>
+    <!-- 本番: ロゴ画像に差し替え -->
+  </a>
+  <nav>
+    <a href="/service">サービス内容</a>
+    <a href="/price">料金プラン</a>
+    <a href="/flow">利用の流れ</a>
+    <a href="/sitter" style="color:var(--primary);font-weight:500;">シッター紹介</a>
+    <a href="/blog">ブログ</a>
+    <a href="/contact" class="btn-line">LINEで相談</a>
+  </nav>
+  <button class="hamburger" onclick="toggleMenu()" aria-label="メニューを開く">
+    <span></span><span></span><span></span>
+  </button>
+</header>
+
+<!-- MOBILE MENU -->
+<nav class="mobile-menu" id="mobileMenu" aria-label="モバイルナビゲーション">
+  <a href="/service" onclick="toggleMenu()">サービス内容</a>
+  <a href="/price" onclick="toggleMenu()">料金プラン</a>
+  <a href="/flow" onclick="toggleMenu()">利用の流れ</a>
+  <a href="/sitter" onclick="toggleMenu()">シッター紹介</a>
+  <a href="/blog" onclick="toggleMenu()">ブログ</a>
+  <a href="/contact" class="btn-line" onclick="toggleMenu()">LINEで相談</a>
+</nav>
+
+<main>
+
+<!-- =============================================
+     PAGE HEADER
+     parts/page-header.php
+     ============================================= -->
+<section class="page-header">
+  <nav class="page-header__breadcrumb" aria-label="パンくずリスト">
+    <a href="/">ホーム</a>
+    <span aria-hidden="true">/</span>
+    <span>シッター紹介</span>
+  </nav>
+  <p class="page-header__label">Sitter Profile</p>
+  <h1 class="page-header__h1">椎名 春香について</h1>
+  <p class="page-header__lead">
+    More Friendsを立ち上げたシッター・椎名春香の想い、
+    シッティング哲学、そしてMore Friendsという名前に込めた意味をお伝えします。
+  </p>
+</section>
+
+
+<!-- =============================================
+     PROFILE
+     parts/sitter-profile.php
+     ============================================= -->
+<section class="sitter-profile">
+  <div class="sitter-profile__inner">
+
+    <div class="sitter-profile__photo-wrap">
+      <!-- ワイヤー確認用 height — 本番削除対象 -->
+      <div class="ph-img sitter-profile__photo" style="height: 460px;"
+           data-label="椎名春香のプロフィール写真。笑顔でペットと触れ合っている様子"></div>
+      <div class="sitter-profile__badge">
+        <div class="sitter-profile__badge-name">椎名 春香</div>
+        動物取扱責任者<br>ペットシッター
+      </div>
+    </div>
+
+    <div class="sitter-profile__info">
+      <p class="sitter-profile__en">Haruka Shiina</p>
+      <h2 class="sitter-profile__name">椎名 春香</h2>
+      <p class="sitter-profile__name-kana">しいな はるか</p>
+
+      <p class="sitter-profile__intro">
+        はじめまして。More Friendsを立ち上げた、
+        動物取扱責任者／ペットシッターの椎名春香と申します。<br>
+        犬・猫・エキゾチックアニマルを含む様々なペットさんを、
+        サイズや種類・性格の違いに関わらず、いつも楽しくポジティブにお世話させていただいております。
+      </p>
+
+      <div class="sitter-profile__meta">
+        <div class="sitter-profile__meta-row">
+          <span class="sitter-profile__meta-label">対応エリア</span>
+          <span class="sitter-profile__meta-value">東京都 / 千葉県</span>
+        </div>
+        <div class="sitter-profile__meta-row">
+          <span class="sitter-profile__meta-label">対応動物</span>
+          <span class="sitter-profile__meta-value">犬・猫・エキゾチックアニマル (爬虫類・両生類含む) / サイズ・種類不問</span>
+        </div>
+        <div class="sitter-profile__meta-row">
+          <span class="sitter-profile__meta-label">得意な子</span>
+          <span class="sitter-profile__meta-value">超繊細さん・怖がりさん〜パワフルわんぱくっ子まで</span>
+        </div>
+        <div class="sitter-profile__meta-row">
+          <span class="sitter-profile__meta-label">受付時間</span>
+          <span class="sitter-profile__meta-value">LINEにて24時間受付 (返信は10:00〜21:00)</span>
+        </div>
+      </div>
+
+      <div class="tags">
+        <span class="tag">動物取扱責任者</span>
+        <span class="tag">愛犬飼育管理士</span>
+        <span class="tag">犬猫ストレスケアアドバイザー</span>
+        <span class="tag">ペットセラピーインストラクター</span>
+        <span class="tag">東京都・千葉県対応</span>
+        <span class="tag">超繊細さん対応</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     PHILOSOPHY — シッティング哲学
+     parts/sitter-philosophy.php
+     ============================================= -->
+<section class="sitter-philosophy">
+
+  <div class="section-header">
+    <span class="label">Sitter Philosophy</span>
+    <h2 class="section-title">シッティング哲学</h2>
+    <p class="section-sub">ペットシッターを始めて気づいた、大切な考え方をお伝えします。</p>
+  </div>
+
+  <div class="sitter-philosophy__grid">
+
+    <div>
+      <div class="sitter-philosophy__quote">
+        お世話は<em>タスクの達成</em>ではない。<br>
+        飼い主さまとペットさんとの<em>日常の再現</em>です。
+        <p class="sitter-philosophy__quote-source">— More Friends 椎名春香</p>
+      </div>
+      <div class="sitter-philosophy__body">
+        <p>
+          ペットシッターのお仕事は、時間制限の中で「はじめまして」のご挨拶から始まり、
+          ペットさんとの信頼関係を構築しながら、お世話をさせていただきます。
+        </p>
+        <p>
+          出社前のバタバタした朝、ペットさんが甘えたがっているのにサッと居なくなるしかなかったとき。
+          心に余裕がないとき、思いがけずきつく叱ってしまったとき。
+          そんな瞬間のペットさんの表情を、私は今でも忘れられません。
+        </p>
+        <p>
+          だからこそ、シッティングでは「余裕のある時間の流れ」を限りなく再現したい。
+          ペットさんに寂しい想いや残念な気持ちをさせないために。
+        </p>
+      </div>
+    </div>
+
+    <div class="sitter-philosophy__cards">
+      <article class="sitter-philosophy__card">
+        <div class="sitter-philosophy__card-icon">⏰</div>
+        <div>
+          <h3 class="sitter-philosophy__card-title">時間には余裕を持たせる</h3>
+          <p class="sitter-philosophy__card-text">
+            シッティング時間は「最低+30分」を推奨しています。
+            信頼関係の構築にも、日常の再現にも、余裕のある時間が何より大切だからです。
+          </p>
+        </div>
+      </article>
+      <article class="sitter-philosophy__card">
+        <div class="sitter-philosophy__card-icon">🤝</div>
+        <div>
+          <h3 class="sitter-philosophy__card-title">ペットさんの個性を最優先に</h3>
+          <p class="sitter-philosophy__card-text">
+            初対面で大騒ぎする子、忍者のように隠れる子、仁王立ちで玄関をブロックする子。
+            すべて正常な反応です。その子のペースを尊重することが第一歩です。
+          </p>
+        </div>
+      </article>
+      <article class="sitter-philosophy__card">
+        <div class="sitter-philosophy__card-icon">🧠</div>
+        <div>
+          <h3 class="sitter-philosophy__card-title">カウンセリングで深く理解してからスタート</h3>
+          <p class="sitter-philosophy__card-text">
+            飼い主さまとペットさんの関係性・癖・声のかけ方を事前に知ることで、
+            初対面でも信頼構築のスピードが大きく変わります。
+          </p>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     TRUST BUILDING — 信頼構築の物語
+     parts/sitter-trust.php
+     ============================================= -->
+<section class="sitter-trust">
+
+  <div class="sitter-trust__grid">
+
+    <div>
+      <span class="label">Trust Building</span>
+      <h2 class="section-title">信頼関係こそが、<br>すべての土台</h2>
+      <p class="section-sub" style="margin-bottom:48px;">
+        信頼関係なしに進むお世話は、ペットさんに相当なストレスをかけます。
+        食欲の低下、排泄の異変、皮膚疾患——ストレスはさまざまなかたちで現れます。
+      </p>
+
+      <!-- ループ単位: .sitter-trust__story-item -->
+      <div class="sitter-trust__story">
+        <div class="sitter-trust__story-item">
+          <div class="sitter-trust__story-dot">👀</div>
+          <div>
+            <h3 class="sitter-trust__story-title">観察と理解から始める</h3>
+            <p class="sitter-trust__story-text">
+              カウンセリング時のペットさんの様子を丁寧に観察し、
+              どんな触れ合いや声がけをされているかを伺います。
+              この「事前理解」が関係構築の速さを決めます。
+            </p>
+          </div>
+        </div>
+        <div class="sitter-trust__story-item">
+          <div class="sitter-trust__story-dot">🐾</div>
+          <div>
+            <h3 class="sitter-trust__story-title">ペットさんのペースに合わせる</h3>
+            <p class="sitter-trust__story-text">
+              「馴れる」という時間は、動物にとっても人間にとっても大切なプロセスです。
+              無理に進めず、その子が安心できるところから一歩ずつ。
+            </p>
+          </div>
+        </div>
+        <div class="sitter-trust__story-item">
+          <div class="sitter-trust__story-dot">✨</div>
+          <div>
+            <h3 class="sitter-trust__story-title">「また来るね」のお別れを目指す</h3>
+            <p class="sitter-trust__story-text">
+              シッティングが終わる頃には「今日も楽しかったね！また来るね🎶」と
+              お別れできることが目標。お留守番がペットさんの「楽しみ」に変わっていきます。
+            </p>
+            <span class="sitter-trust__story-highlight">繰り返すほど関係は深まります</span>
+          </div>
+        </div>
+      </div>
+      <!-- /ループ単位 -->
+    </div>
+
+    <!-- ワイヤー確認用 height — 本番削除対象 -->
+    <div class="ph-img" style="height: 520px; border-radius: 8px;"
+         data-label="椎名春香がペットと安心して過ごすシッティング中の写真"></div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     NARE-RU PROCESS — 馴れるプロセス (8:1:1)
+     parts/sitter-nare-process.php
+     ============================================= -->
+<section class="sitter-nare">
+
+  <div class="section-header">
+    <span class="label">Getting Comfortable</span>
+    <h2 class="section-title">馴れるまでの<br>3つのパターン</h2>
+    <p class="section-sub">
+      「うちの子、人見知りだから心配で…」という方へ。
+      ほとんどの子は思ったよりずっと早く心を開いてくれます。
+    </p>
+  </div>
+
+  <!-- ループ単位: .sitter-nare__card を3回繰り返す -->
+  <div class="sitter-nare__grid">
+
+    <article class="sitter-nare__card featured">
+      <div class="sitter-nare__percent">8<span class="sitter-nare__percent-unit">割</span></div>
+      <h3 class="sitter-nare__title">最初の5〜10分だけ大騒ぎ！</h3>
+      <p class="sitter-nare__text">
+        そのあと比較的すぐに打ち解けられる子。元々甘えん坊さんや、はじめましてから
+        「好き！」モードになる子もこちらに入ります。
+      </p>
+    </article>
+
+    <article class="sitter-nare__card">
+      <div class="sitter-nare__percent">1<span class="sitter-nare__percent-unit">割</span></div>
+      <h3 class="sitter-nare__title">2〜3回で急激に距離が縮む</h3>
+      <p class="sitter-nare__text">
+        顔なじみになると急激に心の距離が近づくタイプ。
+        毎週・隔週など定期的に会うことで、そのペースで確実に開いてくれます。
+      </p>
+    </article>
+
+    <article class="sitter-nare__card">
+      <div class="sitter-nare__percent">1<span class="sitter-nare__percent-unit">割</span></div>
+      <h3 class="sitter-nare__title">数ヶ月〜年単位で徐々に</h3>
+      <p class="sitter-nare__text">
+        特に繊細な子は、ゆっくりとそのペースでお世話できる範囲が広がっていきます。
+        焦らず、その子の歩みを一緒に大切にします。
+      </p>
+    </article>
+
+  </div>
+  <!-- /ループ単位 -->
+
+  <p class="sitter-nare__note">
+    繊細で怖がりさんのペットさんには特に、じっくり時間をかけた信頼構築を最優先にします。
+    必要であれば本番シッティング前に慣れるためのシッティングをご提案することもあります。
+  </p>
+
+</section>
+
+
+<!-- =============================================
+     MORE FRIENDS NO IGI — More Friendsの意義
+     parts/sitter-meaning.php
+     ============================================= -->
+<section class="sitter-meaning">
+
+  <div class="sitter-meaning__inner">
+
+    <div>
+      <span class="label">More Friends</span>
+      <h2 class="section-title" style="margin-bottom:32px;">More Friendsという<br>名前に込めた想い</h2>
+      <p class="sitter-meaning__quote-big">
+        人にもペットさんにも、<br>
+        <em>心許せる友達</em>になりたい。
+      </p>
+      <div class="sitter-meaning__body">
+        <p>
+          どこまで行ってもペットさんの家族は1つしかありません。
+          でも、ペットシッターの努力次第でペットさんの「ベストフレンド」になることは可能です。
+        </p>
+        <p>
+          そして飼い主さまとも信頼関係を結べれば、他人には言えない悩みや気持ちをシェアできる、
+          別の形でのフレンドになれると信じています。
+        </p>
+        <p>
+          人も動物も本当に大好きな私だからこそ——
+          欲張って、たくさんお友達を増やそう！という気持ちで立ち上げました。
+        </p>
+      </div>
+    </div>
+
+    <div class="sitter-meaning__right">
+      <article class="sitter-meaning__card">
+        <div class="sitter-meaning__card-icon">🐾</div>
+        <div>
+          <h3 class="sitter-meaning__card-title">ペットさんのベストフレンドへ</h3>
+          <p class="sitter-meaning__card-text">
+            ペットさんの揺るがない幸福があってこそ、飼い主さまの幸せをサポートできる。
+            その信念でシッティングに臨んでいます。
+          </p>
+        </div>
+      </article>
+      <article class="sitter-meaning__card">
+        <div class="sitter-meaning__card-icon">💬</div>
+        <div>
+          <h3 class="sitter-meaning__card-title">飼い主さまの心の相談相手にも</h3>
+          <p class="sitter-meaning__card-text">
+            ペットのこと、誰にも話せない悩みも——
+            お気軽にシェアしてください。一緒に考えます。
+          </p>
+        </div>
+      </article>
+      <article class="sitter-meaning__card">
+        <div class="sitter-meaning__card-icon">🌱</div>
+        <div>
+          <h3 class="sitter-meaning__card-title">長期的な関係を大切に</h3>
+          <p class="sitter-meaning__card-text">
+            一回限りではなく、成長を見守るような長い関係を築きたい。
+            それがMore Friendsの願いです。
+          </p>
+        </div>
+      </article>
+
+      <div class="sitter-meaning__tagline">
+        <p class="sitter-meaning__tagline-main">
+          ペットさんの幸福があってこそ<br>
+          飼い主さまの幸せをサポートできる
+        </p>
+        <p class="sitter-meaning__tagline-sub">More Friends 椎名春香</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =============================================
+     CREDENTIALS — 資格・認定
+     parts/sitter-credentials.php
+     ============================================= -->
+<section class="sitter-credentials">
+
+  <div class="section-header">
+    <span class="label">Credentials</span>
+    <h2 class="section-title">資格・認定</h2>
+    <p class="section-sub">ペットさんとの向き合い方を学び続けています。</p>
+  </div>
+
+  <!-- ループ単位: .sitter-credentials__item を繰り返す -->
+  <div class="sitter-credentials__grid">
+
+    <article class="sitter-credentials__item">
+      <div class="sitter-credentials__badge">🏅</div>
+      <div>
+        <h3 class="sitter-credentials__title">動物取扱責任者 / 愛犬飼育管理士</h3>
+        <p class="sitter-credentials__issuer">国家・公認資格</p>
+      </div>
+    </article>
+
+    <article class="sitter-credentials__item">
+      <div class="sitter-credentials__badge">🧘</div>
+      <div>
+        <h3 class="sitter-credentials__title">犬猫ストレスケアアドバイザー</h3>
+        <p class="sitter-credentials__issuer">認定資格</p>
+      </div>
+    </article>
+
+    <article class="sitter-credentials__item">
+      <div class="sitter-credentials__badge">💚</div>
+      <div>
+        <h3 class="sitter-credentials__title">ペットセラピーインストラクター</h3>
+        <p class="sitter-credentials__issuer">認定資格</p>
+      </div>
+    </article>
+
+  </div>
+  <!-- /ループ単位 -->
+
+</section>
+
+
+<!-- =============================================
+     CTA — ページフッター CTA (全ページ共通)
+     parts/cta.php
+     ============================================= -->
+<section class="cta-section">
+  <span class="label">Contact</span>
+  <h2 class="section-title">まずはお気軽に<br>ご相談ください</h2>
+  <p>初回カウンセリングは実質無料。<br>ペットさんのこと、どんな些細なことでもお聞きします。</p>
+  <div class="cta-buttons">
+    <a href="/contact" class="btn-cta-white">お問い合わせフォーム</a>
+    <a href="#" class="btn-line-lg">🟢 LINEで相談する</a>
+  </div>
+</section>
+
+</main>
+
+<!-- =============================================
+     FOOTER (全ページ共通)
+     parts/footer.php
+     ============================================= -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-logo-wrap">
+      <div class="footer-logo-ph">More Friends</div>
+      <!-- 本番: ロゴ画像に差し替え -->
+      <p class="footer-tagline">そっと心に触れる、友達のような<br>ペットシッターサービス。<br>東京都・千葉県対応</p>
+    </div>
+    <nav class="footer-nav" aria-label="フッターナビゲーション">
+      <div class="footer-nav-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/about">More Friendsとは</a></li>
+          <li><a href="/service">サービス内容</a></li>
+          <li><a href="/price">料金プラン</a></li>
+          <li><a href="/flow">利用の流れ</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="/sitter">シッター紹介</a></li>
+          <li><a href="/reviews">お客様の声</a></li>
+          <li><a href="/area">対応エリア</a></li>
+          <li><a href="/blog">ブログ</a></li>
+        </ul>
+      </div>
+      <div class="footer-nav-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="/contact">お問い合わせ</a></li>
+          <li><a href="/terms">利用規約</a></li>
+          <li><a href="/privacy">プライバシーポリシー</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 More Friends. All rights reserved.</span>
+    <span>動物取扱責任者：椎名春香 / 東京都・千葉県</span>
+  </div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById('mobileMenu').classList.toggle('open');
+}
+</script>
+</body>
+</html>

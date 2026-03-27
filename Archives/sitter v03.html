@@ -1,0 +1,744 @@
+﻿<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>繧ｷ繝・ち繝ｼ邏ｹ莉・窶・More Friends</title>
+  <meta name="description" content="More Friends縺ｮ繧ｷ繝・ち繝ｼ讀主錐譏･鬥吶・縺皮ｴｹ莉九ょ虚迚ｩ蜿匁桶雋ｬ莉ｻ閠・→縺励※縲√・繝・ヨ縺ｨ鬟ｼ縺・ｸｻ縺輔∪縺ｫ蟇・ｊ豺ｻ縺・す繝・ユ繧｣繝ｳ繧ｰ繧貞ｮ溯ｷｵ縺励※縺・∪縺吶・>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;500&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="wireframe-base.css">
+  <style>
+
+    /* =============================================
+       SITTER PAGE 窶・繝壹・繧ｸ蝗ｺ譛峨せ繧ｿ繧､繝ｫ
+       ============================================= */
+
+    /* ---- 1. 繝偵・繝ｭ繝ｼ ---- */
+    .sitter-hero {
+      padding-top: 64px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100dvh;
+    }
+    .sitter-hero__left {
+      background: var(--bg-mid);
+      padding: 80px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .sitter-hero__eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 12px;
+    }
+    .sitter-hero__name {
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .sitter-hero__name small {
+      display: block;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+      color: var(--text-sub);
+      font-weight: 300;
+      margin-bottom: 4px;
+    }
+    .sitter-hero__role {
+      font-size: 12px;
+      color: var(--primary);
+      letter-spacing: 0.12em;
+      margin-bottom: 32px;
+    }
+    .sitter-hero__intro {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 2;
+      max-width: 440px;
+      margin-bottom: 32px;
+    }
+    .sitter-hero__tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      font-size: 12px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ---- 2. 蜩ｲ蟄ｦ繧､繝ｳ繝医Ο ---- */
+    .philosophy-intro {
+      padding: 96px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .sec-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--primary);
+      display: block;
+      margin-bottom: 12px;
+    }
+    .philosophy-intro__h2 {
+      font-size: 36px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .philosophy-intro__body {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 2.1;
+    }
+    .philosophy-intro__body p + p { margin-top: 20px; }
+    .philosophy-intro__right {
+      background: var(--bg-mid);
+      border-radius: 12px;
+      padding: 52px 48px;
+    }
+    .big-quote {
+      font-size: 22px;
+      font-weight: 400;
+      line-height: 1.75;
+      color: var(--text);
+      position: relative;
+      padding-top: 32px;
+    }
+    .big-quote::before {
+      content: '\201C';
+      font-size: 72px;
+      color: var(--primary-l);
+      position: absolute;
+      top: -12px;
+      left: -8px;
+      line-height: 1;
+    }
+    .big-quote__source {
+      margin-top: 24px;
+      font-size: 12px;
+      color: var(--text-sub);
+      letter-spacing: 0.1em;
+      text-align: right;
+    }
+
+    /* ---- 3. 譌･蟶ｸ縺ｮ蜀咲樟 ---- */
+    .daily-section {
+      background: var(--bg-dark);
+      padding: 96px 80px;
+      color: #fff;
+    }
+    .daily-section .sec-label { color: var(--dark-label); }
+    .daily-section .section-title-dark {
+      font-size: 36px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 48px;
+      line-height: 1.35;
+    }
+    .daily-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+    }
+    .daily-card {
+      border: 1px solid var(--dark-border);
+      border-radius: 8px;
+      padding: 36px 32px;
+    }
+    .daily-card--accent {
+      border-color: var(--primary);
+      background: rgba(200, 96, 122, 0.08);
+    }
+    .daily-card__icon { font-size: 28px; margin-bottom: 16px; }
+    .daily-card__title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .daily-card__body {
+      font-size: 14px;
+      color: var(--dark-sub);
+      line-height: 1.95;
+    }
+    .daily-note {
+      margin-top: 48px;
+      border-top: 1px solid var(--dark-border);
+      padding-top: 40px;
+      font-size: 15px;
+      color: var(--dark-sub);
+      line-height: 2;
+      max-width: 680px;
+    }
+
+    /* ---- 4. 諷｣繧後ｋ縺ｾ縺ｧ縺ｮ蜑ｲ蜷・---- */
+    .trust-section {
+      padding: 96px 80px;
+      background: var(--bg2);
+    }
+    .trust-bars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .trust-bar {
+      background: #fff;
+      border-radius: 8px;
+      padding: 36px 28px;
+      border-top: 4px solid var(--primary-l);
+    }
+    .trust-bar--main { border-top-color: var(--primary); }
+    .trust-bar__pct {
+      font-size: 52px;
+      font-weight: 400;
+      color: var(--primary);
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+    .trust-bar__pct span { font-size: 20px; }
+    .trust-bar__title {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .trust-bar__body {
+      font-size: 13px;
+      color: var(--text-sub);
+      line-height: 1.9;
+    }
+    .trust-note {
+      margin-top: 40px;
+      background: var(--bg-mid);
+      border-radius: 8px;
+      padding: 28px 32px;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.95;
+    }
+
+    /* ---- 5. 蛻晏ｯｾ髱｢縺ｮ蜿榊ｿ懊・隕ｳ蟇溷鴨 ---- */
+    .observe-section {
+      padding: 96px 80px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .observe-section__h2 {
+      font-size: 34px;
+      font-weight: 400;
+      line-height: 1.4;
+      color: var(--text);
+      margin-bottom: 28px;
+    }
+    .observe-section__body {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 2.1;
+    }
+    .observe-section__body p + p { margin-top: 20px; }
+    .reaction-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .reaction-card {
+      background: var(--bg2);
+      border-radius: 8px;
+      padding: 20px 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .reaction-card__emoji { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
+    .reaction-card__text {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.85;
+    }
+    .reaction-card__text strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+      letter-spacing: 0.04em;
+    }
+    .observe-caption {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--primary);
+      font-style: italic;
+    }
+
+    /* ---- 6. More Friends縺ｮ諢冗ｾｩ ---- */
+    .meaning-section {
+      background: var(--bg-mid);
+      padding: 96px 80px;
+      text-align: center;
+    }
+    .meaning-section__h2 {
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 20px;
+      line-height: 1.4;
+    }
+    .meaning-section__lead {
+      font-size: 15px;
+      color: var(--text-sub);
+      line-height: 2;
+      max-width: 600px;
+      margin: 0 auto 48px;
+    }
+    .meaning-quote {
+      max-width: 680px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 52px 56px;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.9;
+      color: var(--text);
+      position: relative;
+    }
+    .meaning-quote::before {
+      content: '\201C';
+      font-size: 80px;
+      color: var(--primary-l);
+      position: absolute;
+      top: 8px;
+      left: 28px;
+      line-height: 1;
+    }
+    .meaning-quote__sign {
+      margin-top: 28px;
+      font-size: 13px;
+      color: var(--text-sub);
+      letter-spacing: 0.1em;
+      text-align: right;
+    }
+
+    /* ---- 7. 雉・ｼ繝ｻ隱榊ｮ・---- */
+    .certs-section { padding: 96px 80px; }
+    .certs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .cert-card {
+      background: var(--bg2);
+      border-radius: 8px;
+      padding: 32px 28px;
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+    .cert-card__icon { font-size: 32px; margin-bottom: 14px; }
+    .cert-card__name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.6;
+      margin-bottom: 8px;
+    }
+    .cert-card__note {
+      font-size: 12px;
+      color: var(--text-sub);
+      line-height: 1.7;
+    }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: var(--bg-dark);
+      padding: 96px 80px;
+      text-align: center;
+      color: #fff;
+    }
+    .cta-section .sec-label { color: var(--dark-label); }
+    .cta-section__title {
+      font-size: 36px;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.35;
+    }
+    .cta-section__body {
+      font-size: 15px;
+      color: var(--dark-sub);
+      line-height: 1.9;
+      margin-bottom: 40px;
+    }
+    .cta-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ---- section-title util ---- */
+    .section-title {
+      font-size: 36px;
+      font-weight: 400;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 20px;
+    }
+
+    /* ---- responsive ---- */
+    @media (max-width: 768px) {
+      .sitter-hero,
+      .philosophy-intro,
+      .daily-grid,
+      .trust-bars,
+      .observe-section,
+      .certs-grid { grid-template-columns: 1fr; }
+      .sitter-hero__left { padding: 64px 24px; }
+      .philosophy-intro,
+      .trust-section,
+      .observe-section,
+      .certs-section,
+      .daily-section,
+      .meaning-section,
+      .cta-section { padding: 64px 24px; }
+      .meaning-quote { padding: 40px 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <!-- parts/header.php -->
+  <header>
+    <a href="/" class="header-logo">
+      <div class="ph-logo">More Friends</div>
+    </a>
+    <nav id="sp-nav" aria-hidden="true">
+      <a href="./about.html">More Friends縺ｨ縺ｯ</a>
+      <a href="./service.html">繧ｵ繝ｼ繝薙せ蜀・ｮｹ</a>
+      <a href="./price.html">譁咎≡繝励Λ繝ｳ</a>
+      <a href="./flow.html">蛻ｩ逕ｨ縺ｮ豬√ｌ</a>
+      <a href="./sitter.html">繧ｷ繝・ち繝ｼ邏ｹ莉・/a>
+      <a href="./blog.html">繝悶Ο繧ｰ</a>
+      <a href="#" class="btn-ig">Instagram縺ｧ逶ｸ隲・/a>
+      <a href="./contact.html" class="btn-line">LINE縺ｧ逶ｸ隲・/a>
+    </nav>
+    <button class="hamburger" aria-label="繝｡繝九Η繝ｼ繧帝幕縺・ aria-expanded="false" aria-controls="sp-nav">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <main>
+
+        <!-- ========== 1. ページヘッダー ========== -->
+    <!-- parts/page-header.php -->
+    <section class="page-header">
+      <span class="page-header__eyebrow">Sitter Profile</span>
+      <h1 class="page-header__title">シッター紹介</h1>
+      <p class="page-header__lead">
+        More Friendsのペットシッター、椎名春香のプロフィールページです。<br>
+        どんな人間が、どんな想いでお世話をするのか。<br>
+        ぜひ一度、お読みいただけると嬉しいです。
+      </p>
+    </section>
+
+    <!-- ========== 2. プロフィール ========== -->
+    <!-- parts/sitter-profile.php -->
+    <section class="sitter-profile">
+      <div class="sitter-profile__inner">
+        <div class="sitter-profile__photo-wrap">
+          <!-- style="height" はワイヤー確認用の仮値。本番削除対象 -->
+          <div class="ph-img" style="height:400px; border-radius:8px;"
+            data-label="椎名春香のポートレート写真。ペットと向き合う笑顔のカット"></div>
+        </div>
+        <div>
+          <span class="sec-label">More Friends 代表シッター</span>
+          <p class="sitter-profile__ruby">しいな はるか</p>
+          <h2 class="sitter-profile__name">椎名 春香</h2>
+          <p class="sitter-profile__role">動物取扱責任者 / ペットシッター</p>
+          <p class="sitter-profile__body">
+            はじめまして。More Friendsにご興味を持っていただき、ありがとうございます。<br><br>
+            超繊細さん・怖がりさんから、パワフル＆わんぱくっ子まで。
+            犬・猫・エキゾチックアニマル（爬虫類・両生類含む）と日々向き合いながら、
+            お世話を楽しく・ポジティブにさせていただいています。<br><br>
+            大手ペットシッター会社での経験を経て独立し、
+            「お世話はタスクではなく、信頼関係を築くプロセス」という信念のもとMore Friendsを立ち上げました。
+          </p>
+          <div class="sitter-hero__tags">
+            <span class="tag">動物取扱責任者</span>
+            <span class="tag">愛犬飼育管理士</span>
+            <span class="tag">犬猫ストレスケアアドバイザー</span>
+            <span class="tag">ペットセラピーインストラクター</span>
+            <span class="tag">東京都・千葉県対応</span>
+            <span class="tag">犬・猫・エキゾチックアニマル</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- ========== 2. 繧ｷ繝・ユ繧｣繝ｳ繧ｰ蜩ｲ蟄ｦ ========== -->
+    <!-- parts/sitter-philosophy.php -->
+    <section class="philosophy-intro">
+      <div>
+        <span class="sec-label">Philosophy</span>
+        <h2 class="philosophy-intro__h2">
+          縺贋ｸ冶ｩｱ縺ｯ縲・br>
+          縲御ｽ懈･ｭ繧ｿ繧ｹ繧ｯ縲阪〒縺ｯ<br>
+          豎ｺ縺励※縺ゅｊ縺ｾ縺帙ｓ縲・        </h2>
+        <div class="philosophy-intro__body">
+          <p>
+            繝壹ャ繝医す繝・ち繝ｼ縺ｮ縺贋ｻ穂ｺ九・縲∽ｸ弱∴繧峨ｌ縺滓凾髢灘宛髯舌・荳ｭ縺ｧ縲後・縺倥ａ縺ｾ縺励※縲阪・縺疲肩諡ｶ縺九ｉ蟋九∪繧翫√・繝・ヨ縺輔ｓ縺ｨ縺ｮ菫｡鬆ｼ髢｢菫ゅｒ讒狗ｯ峨＠縺ｪ縺後ｉ縲√＃萓晞ｼ縺・◆縺縺・◆縺贋ｸ冶ｩｱ繧偵＆縺帙※縺・◆縺縺阪∪縺吶・          </p>
+          <p>
+            縺縺九ｉ縺薙◎遘√′縺・▽繧ょ､ｧ蛻・↓縺励※縺・ｋ縺ｮ縺ｯ縲√碁｣ｼ縺・ｸｻ縺輔∪縺ｨ繝壹ャ繝医＆繧薙→縺ｮ譌･蟶ｸ逕滓ｴｻ縺ｮ荳ｭ縺ｧ襍ｷ縺薙ｋ繧医≧縺ｪ譎る俣縺ｮ豬√ｌ繧偵・em>髯舌ｊ縺ｪ縺丞・迴ｾ縺吶ｋ</em>縲阪→縺・≧繧ｹ繧ｿ繝ｳ繧ｹ縺ｧ縺吶・          </p>
+          <p>
+            蜿ｯ閭ｽ縺ｧ縺ゅｌ縺ｰ譛菴趣ｼ・0蛻・・螟壹ａ縺ｫ縺頑凾髢薙ｒ縺・◆縺縺上％縺ｨ繧偵♀縺吶☆繧√＠縺ｦ縺・∪縺吶ょｴ蜷医↓繧医▲縺ｦ縺ｯ譛ｬ逡ｪ繧ｷ繝・ユ繧｣繝ｳ繧ｰ縺ｮ蜑阪↓縲∵・繧後ｋ縺溘ａ縺ｮ繧ｷ繝・ユ繧｣繝ｳ繧ｰ繧偵＃謠先｡医☆繧九％縺ｨ繧ゅ≠繧翫∪縺吶・          </p>
+        </div>
+      </div>
+      <div class="philosophy-intro__right">
+        <blockquote class="big-quote">
+          遨ｺ豌玲─縺ｮ菴呵｣輔′縲・br>繝壹ャ繝医＆繧薙↓縺ｨ縺｣縺ｦ縺ｮ<br>蠢・・菴呵｣輔↓縺､縺ｪ縺後ｋ縲・          <div class="big-quote__source">窶・讀主錐譏･鬥・/div>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ========== 3. 譌･蟶ｸ縺ｮ蜀咲樟 ========== -->
+    <!-- parts/sitter-daily.php -->
+    <section class="daily-section">
+      <span class="sec-label">Daily Reproduction</span>
+      <h2 class="section-title-dark">譌･蟶ｸ繧偵・剞繧翫↑縺丞・迴ｾ縺吶ｋ縲・/h2>
+      <div class="daily-grid">
+        <div class="daily-card">
+          <div class="daily-card__icon">竢ｱ・・/div>
+          <div class="daily-card__title">縲梧凾髢薙′縺ｪ縺・阪ヰ繧ｿ繝舌ち縺ｮ遨ｺ豌玲─縺ｯ縲√・繝・ヨ縺ｫ莨昴ｏ縺｣縺ｦ縺・∪縺・/div>
+          <p class="daily-card__body">
+            蜃ｺ遉ｾ蜑阪↓縺秘｣ｯ縺縺代ヱ繝・→鄂ｮ縺・※縲瑚｡後▲縺ｦ縺阪∪縺呻ｼ√阪→繧ｵ繝・→螻・↑縺上↑縺｣縺溘→縺阪∝ｯゅ＠縺偵↑逶ｮ縺ｧ隕九▽繧√ｉ繧後◆縺薙→窶披斐≠繧翫∪縺帙ｓ縺具ｼ溷ｿ・↓菴呵｣輔′縺ｪ縺・凾縺ｮ繝輔Λ繧ｹ繝医Ξ繝ｼ繧ｷ繝ｧ繝ｳ繧偵・繝・ヨ縺輔ｓ縺ｫ蜷代￠縺ｦ縺励∪縺｣縺溷ｾ後・縲√≠縺ｮ陦ｨ諠・・蠢倥ｌ繧峨ｌ縺ｾ縺帙ｓ縲・          </p>
+        </div>
+        <div class="daily-card daily-card--accent">
+          <div class="daily-card__icon">諺</div>
+          <div class="daily-card__title">菴呵｣輔・縺ゅｋ遨ｺ豌玲─縺後√・繝・ヨ縺ｮ蠢・・螳牙ｮ壹ｒ縺､縺上ｋ</div>
+          <p class="daily-card__body">
+            蠢吶＠縺上↑縺・凾縲∝ｿ・↓菴呵｣輔′縺ゅｋ譎や披斐・繝・ヨ縺輔ｓ縺ｯ關ｽ縺｡逹縺・※縺・ｉ繧後∪縺吶ゅ御ｻ頑律繧ゆｸ頑焔縺ｫ鬟溘∋縺ｦ蛛峨＞縺ｭ・√阪→隍偵ａ縺ｦ繧ゅｉ縺医◆繧翫・｣ｼ縺・ｸｻ縺輔∪縺後ｆ縺｣縺上ｊ螳ｶ莠九ｒ縺励◆繧翫→縲∝ｮｶ縺ｮ荳ｭ縺ｫ豬√ｌ繧倶ｽ咏區縺ｮ縺ゅｋ遨ｺ豌玲─縺後√◎縺ｮ縺ｾ縺ｾ繝壹ャ繝医＆繧薙・蠢・・菴呵｣輔↓縺ｪ繧翫∪縺吶・          </p>
+        </div>
+      </div>
+      <p class="daily-note">
+        繧ｷ繝・ユ繧｣繝ｳ繧ｰ縺檎ｵゅｏ繧矩・↓縺ｯ縲御ｻ頑律縺ｯ縺溘￥縺輔ｓ驕翫∋縺ｦ讌ｽ縺励°縺｣縺溘・笙｡縲縺ｾ縺滄♀縺ｳ縺ｫ譚･繧九・縲坂披斐◎繧薙↑豌玲戟縺｡縺ｧ縺雁挨繧後〒縺阪ｋ縺ｨ縲√♀逡吝ｮ育分閾ｪ菴薙′繝壹ャ繝医＆繧薙↓縺ｨ縺｣縺ｦ荳縺､縺ｮ<strong style="color:#fff;">縲梧･ｽ縺励∩縲・/strong>縺ｫ蠕舌・↓螟峨ｏ縺｣縺ｦ縺・″縺ｾ縺吶よ凾髢灘宛髯舌′縺ゅｋ繧ｷ繝・ユ繧｣繝ｳ繧ｰ縺縺九ｉ縺薙◎縲√％縺ｮ縲御ｽ呵｣輔阪ｒ螟ｧ蛻・↓縺励※縺・∪縺吶・      </p>
+    </section>
+
+    <!-- ========== 4. 諷｣繧後ｋ縺ｾ縺ｧ縺ｮ繝励Ο繧ｻ繧ｹ ========== -->
+    <!-- parts/sitter-trust.php -->
+    <section class="trust-section">
+      <span class="sec-label">Trust Building</span>
+      <h2 class="section-title">諷｣繧後ｋ縺ｾ縺ｧ縺ｮ蜑ｲ蜷・/h2>
+      <p style="font-size:15px; color:var(--text-sub); line-height:2; max-width:560px;">
+        縲碁ｦｴ繧後ｋ縲阪→縺・≧譎る俣縺ｯ縲∝虚迚ｩ縺ｫ縺ｨ縺｣縺ｦ繧ゆｺｺ髢薙↓縺ｨ縺｣縺ｦ繧よ悽蠖薙↓螟ｧ蛻・↑繝励Ο繧ｻ繧ｹ縲ゅう繝｡繝ｼ繧ｸ縺ｨ縺励※螟ｧ縺ｾ縺九↓縺贋ｼ昴∴縺励∪縺吶・      </p>
+      <div class="trust-bars">
+        <div class="trust-bar trust-bar--main">
+          <div class="trust-bar__pct">8<span>蜑ｲ</span></div>
+          <div class="trust-bar__title">譛蛻昴・5縲・0蛻・□縺大､ｧ鬨偵℃・・br>縺昴・縺ゅ→縺吶＄謇薙■隗｣縺代ｋ</div>
+          <p class="trust-bar__body">蜈・・曝縺医ｓ蝮翫＆繧薙・縲後・縺倥ａ縺ｾ縺励※縲阪°繧牙･ｽ縺阪Δ繝ｼ繝峨↑蟄舌ｂ縲よｯ碑ｼ・噪譌ｩ縺上Μ繝ｩ繝・け繧ｹ縺励※荳邱偵↓驕翫∋繧九ｈ縺・↓縺ｪ繧翫∪縺吶・/p>
+        </div>
+        <div class="trust-bar">
+          <div class="trust-bar__pct">1<span>蜑ｲ</span></div>
+          <div class="trust-bar__title">2縲・蝗槭・繧ｷ繝・ユ繧｣繝ｳ繧ｰ縺ｧ<br>諤･豼縺ｫ蠢・・霍晞屬縺檎ｸｮ縺ｾ繧・/div>
+          <p class="trust-bar__body">鬘斐↑縺倥∩縺ｫ縺ｪ繧九→荳豌励↓繝輔Ξ繝ｳ繝峨Μ繝ｼ縺ｫ縲ゅ後≠縺ｮ莠ｺ譚･縺滂ｼ√阪→縺・≧諢溯ｦ壹′逕溘∪繧後※縺上ｋ谿ｵ髫弱〒縺吶・/p>
+        </div>
+        <div class="trust-bar">
+          <div class="trust-bar__pct">1<span>蜑ｲ</span></div>
+          <div class="trust-bar__title">謨ｰ繝ｶ譛医懷ｹｴ蜊倅ｽ阪〒<br>繧・▲縺上ｊ縺贋ｸ冶ｩｱ縺ｮ遽・峇縺悟ｺ・′繧・/div>
+          <p class="trust-bar__body">郢顔ｴｰ縺ｧ諤悶′繧翫＆繧薙・蟄舌・縺薙■繧峨よｯ朱ｱ繝ｻ髫秘ｱ縺ｧ繧ゆｼ壹≧鬆ｻ蠎ｦ繧定ｨｭ縺代ｋ縺薙→縺ｧ縲√◎縺ｮ蟄舌・繝壹・繧ｹ縺ｧ蠢・ｒ髢九＞縺ｦ縺上□縺輔＞縺ｾ縺吶・/p>
+        </div>
+      </div>
+      <p class="trust-note">
+        誓 郢顔ｴｰ縺ｧ諤悶′繧翫＆繧薙・繝壹ャ繝医＆繧薙↓縺ｯ迚ｹ縺ｫ縲√§縺｣縺上ｊ譎る俣繧偵°縺代※菫｡鬆ｼ讒狗ｯ峨ｒ譛蜆ｪ蜈医↓縺贋ｸ冶ｩｱ繧偵＠縺溘＞縺ｨ鬘倥≧縺薙→縺悟､壹￥縺ｪ繧翫∪縺励◆縲ゅ碁ｦｴ繧後ｋ縲阪→縺・≧縺薙→縺ｯ縲√・繝・ヨ縺輔ｓ縺ｫ縺ｨ縺｣縺ｦ縺ｮ螟ｧ蛻・↑隨ｬ荳豁ｩ縺ｧ縺吶・      </p>
+    </section>
+
+    <!-- ========== 5. 蛻晏ｯｾ髱｢縺ｮ蜿榊ｿ懊・隕ｳ蟇溷鴨 ========== -->
+    <!-- parts/sitter-observe.php -->
+    <section class="observe-section">
+      <div>
+        <span class="sec-label">Observation</span>
+        <h2 class="observe-section__h2">
+          繧ｫ繧ｦ繝ｳ繧ｻ繝ｪ繝ｳ繧ｰ縺ｧ<br>繝壹ャ繝医＆繧薙ｒ隱ｭ繧縲・        </h2>
+        <div class="observe-section__body">
+          <p>
+            迪ｫ遞ｮ繝ｻ迥ｬ遞ｮ繧貞撫繧上★縲∝・蜩｡縺ｮ縲悟区ｧ縲阪′螟ｧ縺阪￥逡ｰ縺ｪ繧九％縺ｨ繧呈律縲・ｮ滓─縺励※縺・∪縺吶ゅ□縺九ｉ縺薙◎遘√′繧ｷ繝・ち繝ｼ縺ｨ縺励※縺ｧ縺阪ｋ縺薙→縺ｯ窶披斐き繧ｦ繝ｳ繧ｻ繝ｪ繝ｳ繧ｰ・磯擇莨夲ｼ画凾縺ｮ繝壹ャ繝医＆繧薙・隕ｳ蟇溘・逅・ｧ｣縺ｨ縲√＞縺九↓鬟ｼ縺・ｸｻ縺輔∪縺ｨ繝壹ャ繝医＆繧薙→縺ｮ髢｢菫よｧ繧・％繧後∪縺ｧ縺ｮ豁ｩ縺ｿ繧堤衍繧九％縺ｨ縺後〒縺阪ｋ縺九√〒縺吶・          </p>
+          <p>
+            譎ｮ谿ｵ縺ｮ隗ｦ繧悟粋縺・婿繝ｻ螢ｰ縺九￠縺ｮ莉墓婿繝ｻ縺薙≧縺・≧譎ゅ↓縺薙ｓ縺ｪ陦悟虚繧偵☆繧狗ｭ峨・縲檎剿縲阪ｒ遏･繧九％縺ｨ縺ｧ縲∝・繧√※莨壹≧繧ｷ繝・ち繝ｼ縺ｧ繧る未菫よｧ狗ｯ峨・繧ｹ繝斐・繝峨ｒ螟ｧ縺阪￥荳翫￡繧九％縺ｨ縺悟庄閭ｽ縺ｫ縺ｪ繧翫∪縺吶ゅ％縺薙↓縺溘￥縺輔ｓ縺ｮ繝偵Φ繝医′髫縺輔ｌ縺ｦ縺・ｋ縺ｨ縲∫ｵ碁ｨ謎ｸ雁ｼｷ縺乗─縺倥※縺・∪縺吶・          </p>
+        </div>
+      </div>
+      <div>
+        <p style="font-size:13px; letter-spacing:0.1em; color:var(--primary); text-transform:uppercase; margin-bottom:20px;">蛻晏ｯｾ髱｢縺ｮ蜿榊ｿ懊・縲√％繧薙↑縺ｫ讒倥・〒縺・/p>
+        <div class="reaction-cards">
+          <div class="reaction-card">
+            <div class="reaction-card__emoji">笨ｨ</div>
+            <div class="reaction-card__text">
+              <strong>縲瑚ｪｰ縺矩♀縺ｳ縺ｫ譚･縺溘・・√阪ち繧､繝・/strong>
+              縺ｯ縺倥ａ縺ｾ縺励※縺ｮ迸ｬ髢薙°繧峨ワ繝・ヴ繝ｼ繝｢繝ｼ繝牙・髢九ゅ♀霑弱∴縺ｮ繝・Φ繧ｷ繝ｧ繝ｳ縺ｧ邇・未縺九ｉ螟ｧ豁楢ｿ弱＠縺ｦ縺上ｌ縺ｾ縺吶・            </div>
+          </div>
+          <div class="reaction-card">
+            <div class="reaction-card__emoji">暢</div>
+            <div class="reaction-card__text">
+              <strong>縲梧悶＞縺｣縲・國繧後ｈ縺・ｼ√榊ｿ崎・ち繧､繝・/strong>
+              繝吶ャ繝峨・荳九ｄ繧ｯ繝ｭ繝ｼ繧ｼ繝・ヨ縺ｸ荳逶ｮ謨｣縲よ悶′繧翫＆繧薙↓縺ｨ縺｣縺ｦ縺ｯ豁｣蟶ｸ縺ｪ蜿榊ｿ懊ら┬繧峨★蠕・▽縺薙→縺御ｿ｡鬆ｼ縺ｮ隨ｬ荳豁ｩ縲・            </div>
+          </div>
+          <div class="reaction-card">
+            <div class="reaction-card__emoji">孱・・/div>
+            <div class="reaction-card__text">
+              <strong>縲後％縺薙・遘√・縺雁ｮｶ・√榊ｮ医ｊ荳ｻ繧ｿ繧､繝・/strong>
+              莉∫視遶九■縺ｧ邇・未縺九ｉ縺昴・螂･縺ｾ縺ｧ繝悶Ο繝・け縲ゅ＃閾ｪ螳・閾ｪ霄ｫ縺ｮ繝・Μ繝医Μ繝ｼ縺ｪ縺ｮ縺ｧ縺ｨ縺｣縺ｦ繧よｭ｣蟶ｸ縺ｪ蜿榊ｿ懊〒縺吶・            </div>
+          </div>
+        </div>
+        <p class="observe-caption">縺吶∋縺ｦ縺ｮ蜿榊ｿ懊ｒ蟆企㍾縺励√◎縺ｮ蟄舌・繝壹・繧ｹ縺ｫ蜷医ｏ縺帙※髢｢菫ゅｒ遽峨＞縺ｦ縺・″縺ｾ縺吶・/p>
+      </div>
+    </section>
+
+    <!-- ========== 6. More Friends縺ｮ諢冗ｾｩ ========== -->
+    <!-- parts/sitter-meaning.php -->
+    <section class="meaning-section">
+      <span class="sec-label">Name &amp; Meaning</span>
+      <h2 class="meaning-section__h2">More Friends縺ｨ縺・≧蜷榊燕縺ｫ霎ｼ繧√◆諠ｳ縺・/h2>
+      <p class="meaning-section__lead">
+        縺ｩ縺薙∪縺ｧ陦後▲縺ｦ繧ゅ√・繝・ヨ縺輔ｓ縺ｮ螳ｶ譌上・1縺､縺励°縺ゅｊ縺ｾ縺帙ｓ縲ゅ〒繧ゅ√・繝・ヨ繧ｷ繝・ち繝ｼ縺ｮ蜉ｪ蜉帶ｬ｡隨ｬ縺ｧ繝壹ャ繝医＆繧薙・繝吶せ繝医ヵ繝ｬ繝ｳ繝峨↓縺ｪ繧九％縺ｨ縺ｯ縺ｧ縺阪∪縺吶ゅ◎縺励※鬟ｼ縺・ｸｻ縺輔∪縺ｨ繧ゆｿ｡鬆ｼ髢｢菫ゅ′邨舌∋繧後・縲∽ｻ紋ｺｺ縺ｫ縺ｯ險縺医↑縺・か縺ｿ繧・♀豌玲戟縺｡繧偵す繧ｧ繧｢縺ｧ縺阪ｋ縲∝挨縺ｮ蠖｢縺ｧ縺ｮ繝輔Ξ繝ｳ繝峨↓縺ｪ繧後ｋ縺ｨ菫｡縺倥※縺・∪縺吶・      </p>
+      <blockquote class="meaning-quote">
+        ・・More Friends ・・br>
+        莠ｺ縺ｫ繧ゅ・繝・ヨ縺輔ｓ縺ｫ縺ｨ縺｣縺ｦ繧ゅ悟ｿ・ｨｱ縺帙ｋ蜿矩＃縲阪↓縺ｪ繧翫◆縺・・br>
+        莠ｺ繧ょ虚迚ｩ繧よ悽蠖薙↓螟ｧ螂ｽ縺阪↑遘√□縺九ｉ縺薙◎縲・br>
+        谺ｲ蠑ｵ縺｣縺ｦ縺溘￥縺輔ｓ縺雁暑驕斐ｒ蠅励ｄ縺昴≧繧茨ｼ・br>
+        縺ｨ縺・≧豌玲戟縺｡縺ｧ遶九■荳翫￡縺ｾ縺励◆縲・br><br>
+        繝壹ャ繝医＆繧薙・謠ｺ繧九′縺ｪ縺・ｹｸ遖上′縺ゅ▲縺ｦ縺薙◎縲・br>鬟ｼ縺・ｸｻ縺輔∪縺ｮ蟷ｸ縺帙ｒ繧ｵ繝昴・繝医〒縺阪ｋ縺ｨ菫｡縺倥※縺・∪縺吶・        <div class="meaning-quote__sign">More Friends縲讀主錐 譏･鬥・/div>
+      </blockquote>
+    </section>
+
+    <!-- ========== 7. 雉・ｼ繝ｻ隱榊ｮ夲ｼ亥次譁・・繝橸ｼ・========== -->
+    <!-- parts/sitter-certs.php -->
+    <section class="certs-section">
+      <span class="sec-label">Qualifications</span>
+      <h2 class="section-title">雉・ｼ繝ｻ隱榊ｮ・/h2>
+      <p style="font-size:14px; color:var(--text-sub); line-height:1.9; max-width:520px; margin-top:8px;">
+        繝壹ャ繝医＆繧薙→鬟ｼ縺・ｸｻ縺輔∪縺ｸ縺ｮ雋ｬ莉ｻ縺ｨ縺励※縲∝ｰる摩逧・↑遏･隴倥→雉・ｼ繧貞叙蠕励＠縺ｦ縺・∪縺吶・      </p>
+      <div class="certs-grid">
+        <article class="cert-card">
+          <div class="cert-card__icon">搭</div>
+          <div class="cert-card__name">蜍慕黄蜿匁桶雋ｬ莉ｻ閠・/<br>諢帷堪鬟ｼ閧ｲ邂｡逅・｣ｫ</div>
+          <p class="cert-card__note">蜍慕黄諢幄ｭｷ邂｡逅・ｳ輔↓蝓ｺ縺･縺剰ｳ・ｼ縲る←蛻・↑蜍慕黄縺ｮ蜿悶ｊ謇ｱ縺・→鬟ｼ閧ｲ邂｡逅・・蟆る摩遏･隴倥ｒ菫晄怏縺励※縺・∪縺吶・/p>
+        </article>
+        <article class="cert-card">
+          <div class="cert-card__icon">ｧ・/div>
+          <div class="cert-card__name">迥ｬ迪ｫ繧ｹ繝医Ξ繧ｹ繧ｱ繧｢<br>繧｢繝峨ヰ繧､繧ｶ繝ｼ</div>
+          <p class="cert-card__note">迥ｬ繝ｻ迪ｫ縺ｮ繧ｹ繝医Ξ繧ｹ繧ｵ繧､繝ｳ縺ｮ隱ｭ縺ｿ蜿悶ｊ縺ｨ縲√せ繝医Ξ繧ｹ繧定ｻｽ貂帙☆繧九こ繧｢縺ｮ蟆る摩遏･隴倥ｒ菫晄怏縺励※縺・∪縺吶・/p>
+        </article>
+        <article class="cert-card">
+          <div class="cert-card__icon">誓</div>
+          <div class="cert-card__name">繝壹ャ繝医そ繝ｩ繝斐・<br>繧､繝ｳ繧ｹ繝医Λ繧ｯ繧ｿ繝ｼ</div>
+          <p class="cert-card__note">繝壹ャ繝医→縺ｮ隗ｦ繧悟粋縺・ｒ騾壹§縺溽ｲｾ逾樒噪繝ｻ霄ｫ菴鍋噪繧ｵ繝昴・繝医↓髢｢縺吶ｋ蟆る摩逧・↑遏･隴倥→謚陦薙ｒ菫晄怏縺励※縺・∪縺吶・/p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ========== 8. CTA ========== -->
+    <!-- parts/cta.php -->
+    <section class="cta-section" id="contact">
+      <span class="sec-label">Get Started</span>
+      <h2 class="cta-section__title">縺ｾ縺壹∵ｰ苓ｻｽ縺ｫ縺皮嶌隲・￥縺縺輔＞縲・/h2>
+      <p class="cta-section__body">
+        蛻晏屓繧ｫ繧ｦ繝ｳ繧ｻ繝ｪ繝ｳ繧ｰ縺ｯ縺比ｺ育ｴ・｢ｺ螳壹〒螳溯ｳｪ辟｡譁吶・br>
+        繝壹ャ繝医＆繧薙→鬟ｼ縺・ｸｻ縺輔∪縺ｫ縺ｨ縺｣縺ｦ縲∵悽蠖薙↓蜷医≧繧ｷ繝・ち繝ｼ縺九←縺・°繧剃ｸ邱偵↓遒ｺ縺九ａ縺ｾ縺励ｇ縺・・      </p>
+      <div class="cta-buttons">
+        <a href="./contact.html" class="btn-cta-white">辟｡譁吶き繧ｦ繝ｳ繧ｻ繝ｪ繝ｳ繧ｰ繧堤筏縺苓ｾｼ繧</a>
+        <a href="#" class="btn-line-lg">LINE縺ｧ逶ｸ隲・/a>
+        <a href="#" class="btn-ig-lg">Instagram縺ｧ逶ｸ隲・/a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <!-- parts/footer.php -->
+  <footer>
+    <div class="footer-top">
+      <div>
+        <div class="ph-logo footer-logo">More Friends</div>
+        <div class="footer-tagline">
+          縺昴▲縺ｨ蠢・↓隗ｦ繧後ｋ縲・br>蜿矩＃縺ｮ繧医≧縺ｪ蟄伜惠縺ｧ縺ゅｊ縺溘＞縲・br><br>
+          譚ｱ莠ｬ驛ｽ繝ｻ蜊・痩逵後・繝壹ャ繝医す繝・ユ繧｣繝ｳ繧ｰ繧ｵ繝ｼ繝薙せ
+        </div>
+        <div class="footer-sns">
+          <a href="#" class="footer-sns-btn" aria-label="LINE">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          </a>
+          <a href="#" class="footer-sns-btn" aria-label="Instagram">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-nav">
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">Service</p>
+          <ul>
+            <li><a href="./about.html">More Friends縺ｨ縺ｯ</a></li>
+            <li><a href="./service.html">繧ｵ繝ｼ繝薙せ蜀・ｮｹ</a></li>
+            <li><a href="./price.html">譁咎≡繝励Λ繝ｳ</a></li>
+            <li><a href="./cancel.html">繧ｭ繝｣繝ｳ繧ｻ繝ｫ繝昴Μ繧ｷ繝ｼ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">About</p>
+          <ul>
+            <li><a href="./sitter.html">繧ｷ繝・ち繝ｼ邏ｹ莉・/a></li>
+            <li><a href="./flow.html">蛻ｩ逕ｨ縺ｮ豬√ｌ</a></li>
+            <li><a href="./area.html">蟇ｾ蠢懊お繝ｪ繧｢</a></li>
+            <li><a href="./reviews.html">縺雁ｮ｢讒倥・螢ｰ</a></li>
+          </ul>
+        </div>
+        <div class="footer-nav-col">
+          <p class="footer-nav-heading">Info</p>
+          <ul>
+            <li><a href="./blog.html">繝悶Ο繧ｰ</a></li>
+            <li><a href="./contact.html">縺雁撫縺・粋繧上○</a></li>
+            <li><a href="#">繝励Λ繧､繝舌す繝ｼ繝昴Μ繧ｷ繝ｼ</a></li>
+            <li><a href="#">蛻ｩ逕ｨ隕冗ｴ・/a></li>
+            <li><a href="#">蜍慕黄蜿匁桶讌ｭ</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>ﾂｩ 2026 More Friends. All rights reserved.</span>
+    </div>
+  </footer>
+
+<script>
+document.querySelector('.hamburger')?.addEventListener('click', function() {
+  const nav = document.getElementById('sp-nav');
+  const isOpen = nav.classList.toggle('open');
+  this.setAttribute('aria-expanded', isOpen);
+  nav.setAttribute('aria-hidden', !isOpen);
+});
+</script>
+
+</body>
+</html>
+
+
